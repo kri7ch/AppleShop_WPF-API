@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "FdAQIpXd788sX3rIQkroVkG8mnhD3ZzUrPIrGJhwNBY=",
+  "Source": "ApplShopAPI",
+  "BasePath": "_content/ApplShopAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

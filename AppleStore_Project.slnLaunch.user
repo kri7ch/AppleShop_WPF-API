@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "AppleStore_Project\\ApplShopAPI.csproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "AppleShopWPF\\AppleShopWPF.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]
