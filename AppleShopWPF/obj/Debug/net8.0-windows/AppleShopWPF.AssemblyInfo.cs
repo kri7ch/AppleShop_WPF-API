@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppleShopWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10e94d054ad9d88b8a73621b08d82398fd3a835a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+534dddd2292e0ee29e104c98a9a60d48e72f0a80")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppleShopWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppleShopWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
