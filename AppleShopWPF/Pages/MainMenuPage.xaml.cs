@@ -1,28 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AppleShopWPF.Components;
+using ApplShopAPI.Model;
+using AppleShopWPF.Services;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AppleShopWPF.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для MainMenuPage.xaml
-    /// </summary>
     public partial class MainMenuPage : Page
     {
+        private readonly ApiClient _apiClient;
+
         public MainMenuPage()
         {
             InitializeComponent();
+            _apiClient = new ApiClient();
+            LoadProducts();
+        }
+
+        private async void LoadProducts()
+        {
+            var products = await _apiClient.GetProductsAsync();
+            DisplayProducts(products);
+        }
+
+        private void DisplayProducts(List<Product> products)
+        {
+            ProductsUniformGrid.Children.Clear();
+
+            foreach (var product in products)
+            {
+                var productCard = new ProductCard
+                {
+                    ProductName = product.Name,
+                    StockQuantity = (int)product.StockQuantity,
+                    Price = product.Price,
+                    ImageCode = product.ImageCode ?? "",
+                    ProductId = (int)product.Id
+                };
+
+                productCard.InitializeProduct();
+
+                productCard.OnBuyClicked += (productId) =>
+                {
+                    MessageBox.Show($"Товар '{product.Name}' добавлен в корзину!",
+                        "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                };
+
+                ProductsUniformGrid.Children.Add(productCard);
+            }
         }
     }
 }

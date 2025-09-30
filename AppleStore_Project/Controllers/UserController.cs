@@ -162,5 +162,14 @@ namespace ApplShopAPI.Controllers
         {
             return HashPassword(password) == storedHash;
         }
+
+        [HttpGet("getid/{email}")]
+        public async Task<ActionResult<int>> GetUserIdByEmail(string email)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null) return NotFound();
+
+            return Ok((int)user.Id);
+        }
     }
 }

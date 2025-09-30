@@ -38,5 +38,15 @@
                 <Button Style="{StaticResource btn_style_menu}" Content="Profile" Width="300" Height="76" FontSize="36" Background="White" Margin="20"/>
             </UniformGrid>
         </Border>
+
+        <ScrollViewer Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="5"
+              VerticalScrollBarVisibility="Auto" 
+              HorizontalScrollBarVisibility="Disabled"
+              Margin="20">
+            <UniformGrid x:Name="ProductsUniformGrid" 
+                 Columns="4" 
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Top"/>
+        </ScrollViewer>
     </Grid>
 </Page>

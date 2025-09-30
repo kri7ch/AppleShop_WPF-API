@@ -61,7 +61,7 @@ namespace AppleShopWPF.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppleShopWPF;V1.0.0.0;component/windows/mainshopwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppleShopWPF;component/windows/mainshopwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\MainShopWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using ApplShopAPI.Model;
 
 namespace AppleShopWPF.Services
 {
@@ -77,5 +78,52 @@ namespace AppleShopWPF.Services
                 return false;
             }
         }
+
+        public async Task<List<Product>> GetProductsAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("http://localhost:5279/api/Product");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var products = JsonSerializer.Deserialize<List<Product>>(content, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                    return products ?? new List<Product>();
+                }
+                return new List<Product>();
+            }
+            catch
+            {
+                return new List<Product>();
+            }
+        }
+
+        public async Task<int> GetUserIdByEmailAsync(string email)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"{BaseUrl}/getid/{email}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    if (int.TryParse(content, out int userId))
+                    {
+                        return userId;
+                    }
+                }
+            }
+            catch
+            {
+                //хз
+            }
+
+            return 0;
+        }
+
     }
 }

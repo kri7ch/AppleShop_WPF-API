@@ -16,13 +16,16 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
-            <Image Source="\Assets\Images\Zaglushka.png" Width="218" Height="270" Grid.Row="0"/>
+            
+            <Border Grid.Row="0">
+                <Image x:Name="ProductImage" Width="218" Height="270" Stretch="Uniform"/>
+            </Border>
 
-            <TextBlock x:Name="ProductNameText" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Product name" Foreground="Black" FontSize="32"/>
-            <TextBlock x:Name="ProductCountText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Product count" Foreground="Black" FontSize="32"/>
-            <TextBlock x:Name="ProductPriceText" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Product price" Foreground="Black" FontSize="32"/>
+            <TextBlock x:Name="ProductNameText" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="32"/>
+            <TextBlock x:Name="ProductCountText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="32"/>
+            <TextBlock x:Name="ProductPriceText" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="32"/>
 
-            <Button x:Name="BtnBuyProduct" Style="{StaticResource btn_style_buy}" Content="Buy" Grid.Row="4" FontSize="32" Background="Black" Foreground="White" Width="250" Height="70"/>
+            <Button x:Name="BtnBuyProduct" Style="{StaticResource btn_style_buy}" Content="Buy" Grid.Row="4" FontSize="32" Background="Black" Foreground="White" Width="250" Height="70" Click="BtnBuyProduct_Click"/>
         </Grid>
     </Border>
 </UserControl>
