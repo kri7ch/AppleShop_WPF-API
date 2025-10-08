@@ -32,14 +32,20 @@ namespace AppleShopWPF.Pages
 
             if (success)
             {
-                // Получаем ID пользователя через API (нужно добавить метод в ApiClient)
+                // AppState.CurrentUserId уже установлен из ответа login
+                // Если нужно оставить запрос на ID по email, не повредит:
                 int userId = await _apiClient.GetUserIdByEmailAsync(email);
+                if (userId > 0) AppState.CurrentUserId = userId;
 
-                // Сохраняем ID в статической переменной
-                AppState.CurrentUserId = userId;
-
-                // Переход на главную страницу
-                NavigationService.Navigate(new MainMenuPage());
+                // Навигация по role_id
+                if (Services.AppState.IsAdmin)
+                {
+                    NavigationService.Navigate(new AdminPage());
+                }
+                else
+                {
+                    NavigationService.Navigate(new MainMenuPage());
+                }
             }
             
         }

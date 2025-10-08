@@ -26,7 +26,7 @@ namespace AppleShopWPF.Components
         {
             ProductNameText.Text = ProductName;
             ProductCountText.Text = $"In stock: {StockQuantity} pcs";
-            ProductPriceText.Text = $"{Price}₽";
+            ProductPriceText.Text = $"{Price} ₽";
 
             LoadProductImage();
 

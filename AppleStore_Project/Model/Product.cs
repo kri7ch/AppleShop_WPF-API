@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ApplShopAPI.Model;
@@ -19,10 +19,12 @@ public partial class Product
 
     public uint StatusId { get; set; }
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     public virtual Category Category { get; set; } = null!;
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     public virtual ProductStatus Status { get; set; } = null!;

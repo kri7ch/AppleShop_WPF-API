@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApplShopAPI.Model;
 using System.ComponentModel.DataAnnotations;
@@ -76,17 +76,7 @@ namespace ApplShopAPI.Controllers
                 if (user.IsActive != true)
                     return BadRequest("Аккаунт деактивирован");
 
-                return Ok(new
-                {
-                    User = new
-                    {
-                        user.Id,
-                        user.Email,
-                        user.Phone,
-                        user.DeliveryAddress,
-                        Role = user.Role.Name
-                    }
-                });
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -106,15 +96,29 @@ namespace ApplShopAPI.Controllers
                 if (user == null)
                     return NotFound("Пользователь не найден");
 
-                return Ok(new
-                {
-                    user.Id,
-                    user.Email,
-                    user.Phone,
-                    user.DeliveryAddress,
-                    RegistrationDate = user.RegistrationDate,
-                    Role = user.Role.Name
-                });
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Ошибка сервера: {ex.Message}");
+            }
+        }
+        
+        [HttpPut("profile/{id}")]
+        public async Task<IActionResult> UpdateProfile(uint id, [FromBody] ProfileUpdateRequest request)
+        {
+            try
+            {
+                var user = await _context.Users.FindAsync(id);
+                if (user == null)
+                    return NotFound("Пользователь не найден");
+
+                user.Phone = request.Phone;
+                user.DeliveryAddress = request.DeliveryAddress;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new { Message = "Профиль успешно обновлен" });
             }
             catch (Exception ex)
             {
@@ -122,33 +126,16 @@ namespace ApplShopAPI.Controllers
             }
         }
 
-        //[HttpPut("profile/{id}")]
-        //public async Task<IActionResult> UpdateProfile(uint id, [FromBody] ProfileUpdateRequest request)
-        //{
-        //    try
-        //    {
-        //        var user = await _context.Users.FindAsync(id);
-        //        if (user == null)
-        //            return NotFound("Пользователь не найден");
+        public class ProfileUpdateRequest
+        {
+            public string? Phone { get; set; }
+            public string? DeliveryAddress { get; set; }
+        }
 
-        //        user.Phone = request.Phone;
-        //        user.DeliveryAddress = request.DeliveryAddress;
-
-        //        await _context.SaveChangesAsync();
-
-        //        return Ok(new { Message = "Профиль успешно обновлен" });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, $"Ошибка сервера: {ex.Message}");
-        //    }
-        //}
-
-        //public class ProfileUpdateRequest
-        //{
-        //    public string? Phone { get; set; }
-        //    public string? DeliveryAddress { get; set; }
-        //}
+        public class UpdateIsActiveRequest
+        {
+            public bool IsActive { get; set; }
+        }
 
         private string HashPassword(string password)
         {
@@ -170,6 +157,41 @@ namespace ApplShopAPI.Controllers
             if (user == null) return NotFound();
 
             return Ok((int)user.Id);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] string? q)
+        {
+            var queryable = _context.Users.Include(u => u.Role).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                var lower = q.ToLower();
+                queryable = queryable.Where(u =>
+                    u.Email.ToLower().Contains(lower) ||
+                    (u.Phone != null && u.Phone.ToLower().Contains(lower)) ||
+                    (u.DeliveryAddress != null && u.DeliveryAddress.ToLower().Contains(lower))
+                );
+            }
+
+            var users = await queryable
+                .OrderBy(u => u.Id)
+                .ToListAsync();
+
+            return Ok(users);
+        }
+        
+        [HttpPut("{id}/is-active")]
+        public async Task<IActionResult> UpdateIsActive(uint id, [FromBody] UpdateIsActiveRequest request)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+                return NotFound("Пользователь не найден");
+
+            user.IsActive = request.IsActive;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = "Статус активности обновлён", IsActive = user.IsActive });
         }
     }
 }

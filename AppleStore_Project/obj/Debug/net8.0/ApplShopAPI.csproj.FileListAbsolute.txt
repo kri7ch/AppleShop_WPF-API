@@ -132,10 +132,10 @@ C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ApplShopAPI.props
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ApplShopAPI.props
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\ApplShop.60526D7B.Up2Date
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\ApplShopAPI.dll
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\refint\ApplShopAPI.dll
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\ApplShopAPI.pdb
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\ApplShopAPI.genruntimeconfig.cache
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\ref\ApplShopAPI.dll
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleStore_Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

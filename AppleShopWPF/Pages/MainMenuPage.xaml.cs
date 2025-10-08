@@ -1,6 +1,7 @@
-﻿using AppleShopWPF.Components;
+using AppleShopWPF.Components;
 using ApplShopAPI.Model;
 using AppleShopWPF.Services;
+using AppleShopWPF.Pages;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -48,6 +49,11 @@ namespace AppleShopWPF.Pages
 
                 ProductsUniformGrid.Children.Add(productCard);
             }
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProfilePage());
         }
     }
 }

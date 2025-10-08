@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ApplShopAPI.Model;
@@ -11,6 +11,7 @@ public partial class User
 
     public string Email { get; set; } = null!;
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public string PasswordHash { get; set; } = null!;
 
     public DateTime RegistrationDate { get; set; }
@@ -21,8 +22,10 @@ public partial class User
 
     public bool? IsActive { get; set; }
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual UserRole Role { get; set; } = null!;

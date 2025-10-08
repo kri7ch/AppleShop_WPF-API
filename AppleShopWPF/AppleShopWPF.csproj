@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\Project_Ico\Логотип-проекта.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Project_Ico\Логотип-проекта.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AppleStore_Project\ApplShopAPI.csproj" />

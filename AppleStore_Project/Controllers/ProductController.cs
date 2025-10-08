@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApplShopAPI.Model;
 using System.Collections.Generic;
@@ -19,30 +19,13 @@ namespace ApplShopAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             var products = await _context.Products
                 .Where(p => p.StockQuantity > 0)
-                .Select(p => new ProductDto
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    ImageCode = p.ImageCode,
-                    Price = p.Price,
-                    StockQuantity = p.StockQuantity
-                })
                 .ToListAsync();
 
             return Ok(products);
         }
-    }
-
-    public class ProductDto
-    {
-        public uint Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string? ImageCode { get; set; }
-        public decimal Price { get; set; }
-        public uint StockQuantity { get; set; }
     }
 }

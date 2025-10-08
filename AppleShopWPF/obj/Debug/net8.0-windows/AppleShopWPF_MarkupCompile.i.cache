@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\App.xaml
-61273775307
-
-13-1813807102
+8-1859182154
+1888039067
+14-1340697831
 346-275381972
-Components\ProductCard.xaml;Pages\AuthorizationPage.xaml;Pages\MainMenuPage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\MainShopWindow.xaml;
+Components\ProductCard.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Pages\MainMenuPage.xaml;Pages\ProfilePage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\MainShopWindow.xaml;
 
 True
 

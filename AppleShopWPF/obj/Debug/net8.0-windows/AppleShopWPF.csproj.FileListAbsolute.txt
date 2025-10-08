@@ -60,3 +60,8 @@ C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\bin\Debug\net8.0-win
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\bin\Debug\net8.0-windows\ApplShopAPI.pdb
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\AppleShopWPF.csproj.AssemblyReference.cache
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\AppleSho.F38DFB89.Up2Date
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\ProfilePage.g.cs
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\ProfilePage.baml
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\AdminPage.g.cs
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\AppleShopWPF_Content.g.cs
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\AdminPage.baml
