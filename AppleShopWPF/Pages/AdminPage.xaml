@@ -30,12 +30,13 @@
 
         <Label Content="Apple Spectrum" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Manjari"/>
 
-        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Background="Black" Width="1500" Height="124" CornerRadius="25">
-            <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Style="{StaticResource btn_style_menu}" Content="Users" Width="300" Height="76" FontSize="36" Background="White" Margin="20" Click="UsersButton_Click"/>
-                <Button Style="{StaticResource btn_style_menu}" Content="Products" Width="300" Height="76" FontSize="36" Background="White" Margin="20" Click="ProductsButton_Click"/>
-                <Button Style="{StaticResource btn_style_menu}" Content="Orders" Width="300" Height="76" FontSize="36" Background="White" Margin="20" Click="OrdersButton_Click"/>
-                <Button Style="{StaticResource btn_style_menu}" Content="Categories" Width="300" Height="76" FontSize="36" Background="White" Margin="20" Click="CategoriesButton_Click"/>
+        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Background="Black" Width="1600" Height="124" CornerRadius="25">
+            <UniformGrid Columns="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Style="{StaticResource btn_style_menu}" Content="Users" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="UsersButton_Click"/>
+                <Button Style="{StaticResource btn_style_menu}" Content="Products" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="ProductsButton_Click"/>
+                <Button Style="{StaticResource btn_style_menu}" Content="Orders" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="OrdersButton_Click"/>
+                <Button Style="{StaticResource btn_style_menu}" Content="Categories" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="CategoriesButton_Click"/>
+                <Button Style="{StaticResource btn_style_menu}" Content="Exit" Width="260" Height="76" FontSize="36"  Background="#FFB14F4F" Foreground="White" Margin="20" Click="LogoutButton_Click"/>
             </UniformGrid>
         </Border>
 
@@ -45,78 +46,260 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TableTitle" Text="Таблица: Пользователи" FontSize="28" FontFamily="Manjari" Margin="0,0,0,10"/>
+            <TextBlock x:Name="TableTitle" Text="Пользователи" FontSize="36" FontFamily="Manjari" Margin="0,0,0,10"/>
 
-            <!-- Таблица пользователей -->
-            <DataGrid x:Name="UsersGrid"
-                      Grid.Row="1"
-                      AutoGenerateColumns="False"
-                      HeadersVisibility="Column"
-                      IsReadOnly="False"
-                      CanUserAddRows="False"
-                      Margin="0,12,0,0"
-                      Visibility="Visible">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True" Width="60"/>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
-                    <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="160"/>
-                    <DataGridTextColumn Header="Адрес" Binding="{Binding DeliveryAddress}" Width="200"/>
-                    <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}" Width="120" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="RoleId" Binding="{Binding RoleId}" Width="70" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Регистрация" Binding="{Binding RegistrationDate, StringFormat=\{0:dd.MM.yyyy HH:mm\}}" Width="160" IsReadOnly="True"/>
-                    <DataGridTemplateColumn Header="Активен" Width="90">
-                        <DataGridTemplateColumn.CellTemplate>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Visible" x:Name="UsersCards">
+                <Grid>
+                    <ItemsControl x:Name="UsersItems">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          Checked="IsActiveCheckBox_Checked"
-                                          Unchecked="IsActiveCheckBox_Unchecked"/>
+                                <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="800" Background="#F7F7F7">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
+                                        <TextBlock Text="ID: " FontWeight="Bold" FontSize="24"/>
+                                        <TextBlock Text="{Binding Id}" Margin="4,0" FontSize="24"/>
+                                        <TextBlock Text=" • " Margin="6,0" FontSize="24"/>
+                                        <TextBlock Text="{Binding Role.Name}" Foreground="#666" FontSize="24"/>
+                                        <TextBlock Text=" • " Margin="6,0" FontSize="24"/>
+                                        <TextBlock Text="Статус: " FontWeight="Bold" FontSize="24"/>
+                                        <TextBlock FontSize="24">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value=""/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                            <Setter Property="Text" Value="Активен"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding IsActive}" Value="False">
+                                                            <Setter Property="Text" Value="Заблокирован"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="1" Margin="0,8,0,0">
+                                        <TextBlock Text="Email" FontWeight="Bold" FontSize="22"/>
+                                        <TextBlock x:Name="tbEmail" Text="{Binding Email}" Background="Transparent" FontSize="22"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="2" Margin="0,8,0,0">
+                                        <TextBlock Text="Телефон" FontWeight="Bold" FontSize="22"/>
+                                        <TextBlock x:Name="tbPhone" Background="Transparent" FontSize="22">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="{Binding Phone}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Phone}" Value="">
+                                                            <Setter Property="Text" Value="Номер не указан"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Phone}" Value="{x:Null}">
+                                                            <Setter Property="Text" Value="Номер не указан"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="3" Margin="0,8,0,0">
+                                        <TextBlock Text="Адрес доставки" FontWeight="Bold" FontSize="22"/>
+                                        <TextBlock x:Name="tbAddress" Background="Transparent" TextWrapping="Wrap" FontSize="22">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="{Binding DeliveryAddress}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding DeliveryAddress}" Value="">
+                                                            <Setter Property="Text" Value="Адрес не указан"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding DeliveryAddress}" Value="{x:Null}">
+                                                            <Setter Property="Text" Value="Адрес не указан"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+                                            <Button Style="{StaticResource btn_style_buy}" x:Name="btnEditUser" Content="Редактировать" Width="200" Height="56" FontSize="20" Margin="0,0,8,0" Click="EditUser_Click" Background="Black" Foreground="White"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
                             </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
-            <!-- Таблица продуктов -->
-            <ListView x:Name="ProductsList" Grid.Row="1" BorderBrush="#DDD" BorderThickness="1" Visibility="Collapsed">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}" Width="400"/>
-                        <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}" Width="150"/>
-                        <GridViewColumn Header="Остаток" DisplayMemberBinding="{Binding StockQuantity}" Width="150"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                    <TextBlock Text="Нету пользователей" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ItemsSource, ElementName=UsersItems}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding HasItems, ElementName=UsersItems}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </ScrollViewer>
 
-            <!-- Таблица заказов -->
-            <DataGrid x:Name="OrdersGrid"
-                      Grid.Row="1"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      Margin="0,12,0,0"
-                      Visibility="Collapsed">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
-                    <DataGridTextColumn Header="Пользователь" Binding="{Binding User.Email}" Width="200"/>
-                    <DataGridTextColumn Header="Сумма" Binding="{Binding TotalAmount}" Width="100"/>
-                    <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate}" Width="150"/>
-                    <DataGridTextColumn Header="Статус" Binding="{Binding Status.Name}" Width="100"/>
-                    <DataGridTextColumn Header="Адрес доставки" Binding="{Binding DeliveryAddress}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <ScrollViewer x:Name="ProductsCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
+                <Grid>
+                    <ItemsControl x:Name="ProductsItems">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="520" Background="#FFFFFF">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Price, StringFormat=Цена: {0:C}}" Margin="0,6,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding StockQuantity, StringFormat=Остаток: {0}}" Margin="0,2,0,0" FontSize="20"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
-            <!-- Таблица категорий -->
-            <DataGrid x:Name="CategoriesGrid"
-                      Grid.Row="1"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      Margin="0,12,0,0"
-                      Visibility="Collapsed">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="200"/>
-                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                    <TextBlock Text="Нету продуктов" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ItemsSource, ElementName=ProductsItems}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding HasItems, ElementName=ProductsItems}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </ScrollViewer>
+
+            <ScrollViewer x:Name="OrdersCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
+                <Grid>
+                    <ItemsControl x:Name="OrdersItems">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="720" Background="#FFFFFF">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Id, StringFormat=Заказ №{0}}" FontSize="24" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding User.Email, StringFormat=Пользователь: {0}}" Margin="0,6,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding TotalAmount, StringFormat=Сумма: {0:C}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding OrderDate, StringFormat=Дата заказа: {0}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding Status.Name, StringFormat=Статус: {0}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding DeliveryAddress, StringFormat=Адрес: {0}}" Margin="0,6,0,0" TextWrapping="Wrap" FontSize="20"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TextBlock Text="Нету заказов" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ItemsSource, ElementName=OrdersItems}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding HasItems, ElementName=OrdersItems}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </ScrollViewer>
+
+            <ScrollViewer x:Name="CategoriesCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
+                <Grid>
+                    <ItemsControl x:Name="CategoriesItems">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="560" Background="#FFFFFF">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Description}" Margin="0,6,0,0" TextWrapping="Wrap" FontSize="20"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TextBlock Text="Нету категорий" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ItemsSource, ElementName=CategoriesItems}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding HasItems, ElementName=CategoriesItems}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

@@ -1,31 +1,31 @@
-﻿<UserControl x:Class="AppleShopWPF.Components.ProductCard"
+<UserControl x:Class="AppleShopWPF.Components.ProductCard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppleShopWPF.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="350" Background="White">
+             d:DesignHeight="600" d:DesignWidth="420" Background="White">
     <Border>
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="270"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="320"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             
             <Border Grid.Row="0">
-                <Image x:Name="ProductImage" Width="218" Height="270" Stretch="Uniform"/>
+                <Image x:Name="ProductImage" Width="280" Height="320" Stretch="Uniform"/>
             </Border>
 
-            <TextBlock x:Name="ProductNameText" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="32"/>
-            <TextBlock x:Name="ProductCountText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="32"/>
-            <TextBlock x:Name="ProductPriceText" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="32"/>
+            <TextBlock x:Name="ProductNameText" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="40" FontWeight="Bold"/>
+            <TextBlock x:Name="ProductCountText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="36"/>
+            <TextBlock x:Name="ProductPriceText" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="36"/>
 
-            <Button x:Name="BtnBuyProduct" Style="{StaticResource btn_style_buy}" Content="Buy" Grid.Row="4" FontSize="32" Background="Black" Foreground="White" Width="250" Height="70" Click="BtnBuyProduct_Click"/>
+            <Button x:Name="BtnBuyProduct" Style="{StaticResource btn_style_buy}" Content="Buy" Grid.Row="4" FontSize="36" Background="Black" Foreground="White" Width="320" Height="84" Click="BtnBuyProduct_Click"/>
         </Grid>
     </Border>
 </UserControl>

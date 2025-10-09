@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppleShopWPF.Windows"
         mc:Ignorable="d"
-        Title="Авторизация" Height="1000" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanMinimize">
+        Title="Authorization" Height="1000" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanMinimize">
     <Frame x:Name="MainWindFrame" NavigationUIVisibility="Hidden">
         
     </Frame>

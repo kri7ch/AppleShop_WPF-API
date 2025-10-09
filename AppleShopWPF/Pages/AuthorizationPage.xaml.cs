@@ -32,18 +32,19 @@ namespace AppleShopWPF.Pages
 
             if (success)
             {
-                // AppState.CurrentUserId уже установлен из ответа login
-                // Если нужно оставить запрос на ID по email, не повредит:
                 int userId = await _apiClient.GetUserIdByEmailAsync(email);
                 if (userId > 0) AppState.CurrentUserId = userId;
 
-                // Навигация по role_id
                 if (Services.AppState.IsAdmin)
                 {
+                    var window = Window.GetWindow(this);
+                    window.Title = "Admin Panel";
                     NavigationService.Navigate(new AdminPage());
                 }
                 else
                 {
+                    var window = Window.GetWindow(this);
+                    window.Title = "Menu";
                     NavigationService.Navigate(new MainMenuPage());
                 }
             }
@@ -53,7 +54,7 @@ namespace AppleShopWPF.Pages
         private void Entry_window()
         {
             var window = Window.GetWindow(this);
-            window.Title = "Регистрация";
+            window.Title = "Registration";
             NavigationService.Navigate(new RegistationPage());
         }
 

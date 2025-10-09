@@ -179,19 +179,21 @@ namespace AppleShopWPF.Services
             return null;
         }
 
-        public async Task<bool> UpdateProfileAsync(uint userId, string? phone, string? deliveryAddress)
+        public async Task<User?> UpdateProfileAsync(uint userId, string? email, string? phone, string? deliveryAddress)
         {
             try
             {
-                var payload = new { Phone = phone, DeliveryAddress = deliveryAddress };
+                var payload = new { Email = email, Phone = phone, DeliveryAddress = deliveryAddress };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var response = await _httpClient.PutAsync($"{BaseUrl}/profile/{userId}", content);
                 if (response.IsSuccessStatusCode)
                 {
+                    // Вернем актуальные данные профиля
+                    var refreshed = await GetProfileAsync(userId);
                     MessageBox.Show("Профиль обновлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                    return true;
+                    return refreshed;
                 }
                 else
                 {
@@ -203,7 +205,7 @@ namespace AppleShopWPF.Services
             {
                 MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            return false;
+            return null;
         }
 
         public async Task<List<User>> GetUsersAsync(string? query = null)

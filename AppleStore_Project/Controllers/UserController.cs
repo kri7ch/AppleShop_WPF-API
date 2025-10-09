@@ -113,6 +113,20 @@ namespace ApplShopAPI.Controllers
                 if (user == null)
                     return NotFound("Пользователь не найден");
 
+                // Обновление Email при необходимости с базовой валидацией и проверкой уникальности
+                if (!string.IsNullOrWhiteSpace(request.Email) && request.Email != user.Email)
+                {
+                    // Простейшая проверка формата Email
+                    if (!new EmailAddressAttribute().IsValid(request.Email))
+                        return BadRequest("Некорректный формат email");
+
+                    var exists = await _context.Users.AnyAsync(u => u.Email == request.Email && u.Id != id);
+                    if (exists)
+                        return BadRequest("Email уже используется другим пользователем");
+
+                    user.Email = request.Email!;
+                }
+
                 user.Phone = request.Phone;
                 user.DeliveryAddress = request.DeliveryAddress;
 
@@ -128,6 +142,7 @@ namespace ApplShopAPI.Controllers
 
         public class ProfileUpdateRequest
         {
+            public string? Email { get; set; }
             public string? Phone { get; set; }
             public string? DeliveryAddress { get; set; }
         }

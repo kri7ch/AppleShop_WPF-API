@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AppleShopWPF.Services;
 using ApplShopAPI.Model;
+using AppleShopWPF.Windows;
 
 namespace AppleShopWPF.Pages
 {
@@ -68,6 +69,52 @@ namespace AppleShopWPF.Pages
         private void btnMenuClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainMenuPage());
+        }
+
+        private async void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is User user)
+            {
+                var modal = new EditProfileWindow(user)
+                {
+                    Owner = Window.GetWindow(this),
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                };
+
+                var result = modal.ShowDialog();
+                if (result == true && modal.UpdatedUser != null)
+                {
+                    DataContext = modal.UpdatedUser;
+                }
+            }
+        }
+
+        private void EditPhone_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            OpenEditModal();
+        }
+
+        private void EditAddress_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            OpenEditModal();
+        }
+
+        private void OpenEditModal()
+        {
+            if (DataContext is User user)
+            {
+                var modal = new EditProfileWindow(user)
+                {
+                    Owner = Window.GetWindow(this),
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                };
+
+                var result = modal.ShowDialog();
+                if (result == true && modal.UpdatedUser != null)
+                {
+                    DataContext = modal.UpdatedUser;
+                }
+            }
         }
 
     }

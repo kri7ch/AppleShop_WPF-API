@@ -21,6 +21,7 @@ namespace AppleShopWPF.Pages
     public partial class AdminPage : Page
     {
         private readonly AppleShopWPF.Services.ApiClient _apiClient = new AppleShopWPF.Services.ApiClient();
+        private readonly Dictionary<uint, (string? email, string? phone, string? address)> _originalUserValues = new();
 
         public AdminPage()
         {
@@ -44,16 +45,7 @@ namespace AppleShopWPF.Pages
                 return;
             }
 
-            try
-            {
-                var products = await _apiClient.GetProductsAsync();
-                ProductsList.ItemsSource = products;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки продуктов: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            ShowOnly("UsersGrid");
+            ShowOnly("UsersCards");
             try
             {
                 await LoadUsersAsync();
@@ -69,9 +61,9 @@ namespace AppleShopWPF.Pages
             try
             {
                 var users = await _apiClient.GetUsersAsync();
-                var grid = this.FindName("UsersGrid") as DataGrid;
-                if (grid != null)
-                    grid.ItemsSource = users;
+                var items = this.FindName("UsersItems") as ItemsControl;
+                if (items != null)
+                    items.ItemsSource = users;
             }
             catch (Exception ex)
             {
@@ -110,7 +102,7 @@ namespace AppleShopWPF.Pages
 
         private void ShowOnly(string elementName)
         {
-            var names = new[] { "UsersGrid", "ProductsList", "OrdersGrid", "CategoriesGrid" };
+            var names = new[] { "UsersCards", "ProductsCards", "OrdersCards", "CategoriesCards" };
             foreach (var name in names)
             {
                 var el = this.FindName(name) as UIElement;
@@ -119,16 +111,16 @@ namespace AppleShopWPF.Pages
             }
         }
 
-        private void SetTableTitle(string tableName)
+        private void SetTableTitle(string sectionName)
         {
             var titleBlock = this.FindName("TableTitle") as TextBlock;
             if (titleBlock != null)
-                titleBlock.Text = $"Таблица: {tableName}";
+                titleBlock.Text = sectionName;
         }
 
         private async void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowOnly("UsersGrid");
+            ShowOnly("UsersCards");
             SetTableTitle("Пользователи");
             try
             {
@@ -142,12 +134,14 @@ namespace AppleShopWPF.Pages
 
         private async void ProductsButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowOnly("ProductsList");
+            ShowOnly("ProductsCards");
             SetTableTitle("Продукты");
             try
             {
                 var products = await _apiClient.GetProductsAsync();
-                ProductsList.ItemsSource = products;
+                var items = this.FindName("ProductsItems") as ItemsControl;
+                if (items != null)
+                    items.ItemsSource = products;
             }
             catch (Exception ex)
             {
@@ -155,16 +149,65 @@ namespace AppleShopWPF.Pages
             }
         }
 
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            var msgExit = MessageBox.Show("Вы точно хотите выйти?", "Проверка", MessageBoxButton.YesNo);
+            if (msgExit == MessageBoxResult.Yes)
+            {
+                AppleShopWPF.Services.AppState.CurrentUserId = 0;
+                AppleShopWPF.Services.AppState.CurrentUserRoleId = 0;
+
+                var mainWindow = Window.GetWindow(this) as Windows.MainShopWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.Title = "Авторизация";
+                    var nav = mainWindow.MainWindFrame.NavigationService;
+                    if (nav != null)
+                    {
+                        while (nav.RemoveBackEntry() != null) { }
+                    }
+                    mainWindow.MainWindFrame.Content = new AuthorizationPage();
+                }
+                else
+                {
+                    var frame = this.Parent as Frame;
+                    if (frame != null)
+                    {
+                        var owner = Window.GetWindow(this);
+                        if (owner != null) owner.Title = "Авторизация";
+                        var nav2 = frame.NavigationService;
+                        if (nav2 != null)
+                        {
+                            while (nav2.RemoveBackEntry() != null) { }
+                        }
+                        frame.Content = new AuthorizationPage();
+                    }
+                    else
+                    {
+                        var newMain = new Windows.MainShopWindow();
+                        newMain.Title = "Авторизация";
+                        newMain.Show();
+                        Window.GetWindow(this)?.Close();
+                    }
+                }
+            }
+            else
+            {
+                return;
+            }
+            
+        }
+
         private async void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowOnly("OrdersGrid");
+            ShowOnly("OrdersCards");
             SetTableTitle("Заказы");
             try
             {
                 var orders = await _apiClient.GetOrdersAsync();
-                var grid = this.FindName("OrdersGrid") as DataGrid;
-                if (grid != null)
-                    grid.ItemsSource = orders;
+                var items = this.FindName("OrdersItems") as ItemsControl;
+                if (items != null)
+                    items.ItemsSource = orders;
             }
             catch (Exception ex)
             {
@@ -174,14 +217,14 @@ namespace AppleShopWPF.Pages
 
         private async void CategoriesButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowOnly("CategoriesGrid");
+            ShowOnly("CategoriesCards");
             SetTableTitle("Категории");
             try
             {
                 var categories = await _apiClient.GetCategoriesAsync();
-                var grid = this.FindName("CategoriesGrid") as DataGrid;
-                if (grid != null)
-                    grid.ItemsSource = categories;
+                var items = this.FindName("CategoriesItems") as ItemsControl;
+                if (items != null)
+                    items.ItemsSource = categories;
             }
             catch (Exception ex)
             {
@@ -189,14 +232,42 @@ namespace AppleShopWPF.Pages
             }
         }
 
-        private async void IsActiveCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void EditUser_Click(object sender, RoutedEventArgs e)
         {
-            await UpdateIsActiveFromCheckBox(sender as CheckBox);
+            if (sender is Button btn && btn.DataContext is ApplShopAPI.Model.User user)
+            {
+                var window = new AppleShopWPF.Windows.AdminEditUserWindow(user);
+
+                window.Owner = Window.GetWindow(this);
+                var result = window.ShowDialog();
+                if (result == true && window.UpdatedUser != null)
+                {
+                    // Обновляем только статус IsActive в карточке
+                    user.IsActive = window.UpdatedUser.IsActive;
+                    // Обновим визуализацию текста статуса
+                    var cards = this.FindName("UsersCards") as ScrollViewer;
+                    if (cards != null && cards.Content is ItemsControl items)
+                    {
+                        items.Items.Refresh();
+                    }
+                }
+            }
         }
 
-        private async void IsActiveCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        private static T? FindChild<T>(DependencyObject parent, string childName) where T : FrameworkElement
         {
-            await UpdateIsActiveFromCheckBox(sender as CheckBox);
+            if (parent == null) return null;
+            int count = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < count; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                if (child is T fe && fe.Name == childName)
+                    return fe;
+                var result = FindChild<T>(child, childName);
+                if (result != null)
+                    return result;
+            }
+            return null;
         }
     }
 }

@@ -1,20 +1,20 @@
 ﻿AppleShopWPF
-1.0.0.0
+
 
 winexe
 C#
 .cs
-c:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\
 AppleShopWPF
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-c:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\App.xaml
-8-1859182154
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\App.xaml
+10-125605891
 1888039067
-14-1340697831
-346-620605045
-Components\ProductCard.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Pages\MainMenuPage.xaml;Pages\ProfilePage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\MainShopWindow.xaml;
+14-1078257768
+3461726034383
+Components\ProductCard.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Pages\MainMenuPage.xaml;Pages\ProfilePage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\AdminEditUserWindow.xaml;Windows\EditProfileWindow.xaml;Windows\MainShopWindow.xaml;
 
-True
+False
 

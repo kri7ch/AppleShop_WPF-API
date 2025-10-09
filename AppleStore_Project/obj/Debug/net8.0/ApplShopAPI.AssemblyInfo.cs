@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApplShopAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03c5231324e2b8c89645a3e1c1840a7e4195594a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+439abc9bfcabdabc2206acd8ee9b62dd087c1dd9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApplShopAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApplShopAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

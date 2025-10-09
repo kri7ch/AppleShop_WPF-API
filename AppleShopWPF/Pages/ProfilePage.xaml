@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AppleShopWPF.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1000" d:DesignWidth="1920"
-      Title="Профиль" Background="White">
+      Title="Profile" Background="White">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -40,7 +40,9 @@
         </Border>
         
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,40,0,0">
-            <TextBlock Text="Personal information" FontSize="32" FontFamily="Manjari" Margin="0,0,0,20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,20">
+                <TextBlock Text="Personal information" FontSize="32" FontFamily="Manjari"/>
+            </StackPanel>
             <StackPanel>
                 <TextBlock Text="Email:" FontSize="26"/>
                 <TextBlock Text="{Binding Email}" FontSize="24" Margin="0,0,0,10"/>
@@ -48,16 +50,39 @@
                 <TextBlock Text="Password:" FontSize="26"/>
                 <TextBlock Text="************" FontSize="24" Margin="0,0,0,10"/>
 
-                <TextBlock Text="Address:" FontSize="26"/>
-                <TextBlock Text="{Binding DeliveryAddress}" FontSize="24" Margin="0,0,0,10"/>
+                <TextBlock Text="Phone:" FontSize="26"/>
+                <TextBlock FontSize="24" Margin="0,0,0,10" Cursor="Hand" MouseLeftButtonUp="EditPhone_MouseLeftButtonUp"
+                           Text="{Binding Phone, TargetNullValue=Add phone number}">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Phone}" Value="">
+                                    <Setter Property="Text" Value="Add phone number"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
 
-                <TextBlock Text="Role:" FontSize="26"/>
-                <TextBlock Text="{Binding Role.Name}" FontSize="24" Margin="0,0,0,10"/>
+                <TextBlock Text="Address:" FontSize="26"/>
+                <TextBlock FontSize="24" Margin="0,0,0,10" Cursor="Hand" MouseLeftButtonUp="EditAddress_MouseLeftButtonUp"
+                           Text="{Binding DeliveryAddress, TargetNullValue=Add delivery address}">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DeliveryAddress}" Value="">
+                                    <Setter Property="Text" Value="Add delivery address"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
             </StackPanel>
 
         </StackPanel>
 
-        <Button x:Name="btnEdit" Style="{StaticResource btn_style}" Content="Edit" Grid.Row="5" Grid.Column="1" FontSize="32" Width="300" Height="100" Background="Black" Foreground="White"/>
+        <Button x:Name="btnEdit" Style="{StaticResource btn_style}" Content="Edit" Grid.Row="5" Grid.Column="1" FontSize="32" Width="300" Height="100" Background="Black" Foreground="White" Click="Edit_Click"/>
 
         <Button x:Name="btnExit" Style="{StaticResource btn_style}" Content="Exit" Grid.Row="5" Grid.Column="2" FontSize="32" Width="300" Height="100" Background="#FFB14F4F" Foreground="White" Click="btnExit_Click"/>
 

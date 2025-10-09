@@ -574,6 +574,10 @@
       "ProfileUpdateRequest": {
         "type": "object",
         "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
           "phone": {
             "type": "string",
             "nullable": true
