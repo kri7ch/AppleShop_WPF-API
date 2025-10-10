@@ -190,7 +190,6 @@ namespace AppleShopWPF.Services
                 var response = await _httpClient.PutAsync($"{BaseUrl}/profile/{userId}", content);
                 if (response.IsSuccessStatusCode)
                 {
-                    // Вернем актуальные данные профиля
                     var refreshed = await GetProfileAsync(userId);
                     MessageBox.Show("Профиль обновлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     return refreshed;

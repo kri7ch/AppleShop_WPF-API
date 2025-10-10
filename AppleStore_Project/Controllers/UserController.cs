@@ -113,10 +113,8 @@ namespace ApplShopAPI.Controllers
                 if (user == null)
                     return NotFound("Пользователь не найден");
 
-                // Обновление Email при необходимости с базовой валидацией и проверкой уникальности
                 if (!string.IsNullOrWhiteSpace(request.Email) && request.Email != user.Email)
-                {
-                    // Простейшая проверка формата Email
+                { 
                     if (!new EmailAddressAttribute().IsValid(request.Email))
                         return BadRequest("Некорректный формат email");
 

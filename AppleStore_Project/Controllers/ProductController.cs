@@ -21,9 +21,7 @@ namespace ApplShopAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            var products = await _context.Products
-                .Where(p => p.StockQuantity > 0)
-                .ToListAsync();
+            var products = await _context.Products.Where(p => p.StockQuantity > 0).ToListAsync();
 
             return Ok(products);
         }

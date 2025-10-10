@@ -71,35 +71,6 @@ namespace AppleShopWPF.Pages
             }
         }
 
-        private async Task UpdateIsActiveFromCheckBox(CheckBox? checkBox)
-        {
-            if (checkBox == null) return;
-
-            var user = checkBox.DataContext as ApplShopAPI.Model.User;
-            if (user == null) return;
-
-            var newValue = user.IsActive == true;
-
-            try
-            {
-                var ok = await _apiClient.UpdateUserIsActiveAsync(user.Id, newValue);
-                if (!ok)
-                {
-                    user.IsActive = !newValue;
-                    var grid = this.FindName("UsersGrid") as DataGrid;
-                    grid?.Items.Refresh();
-                    MessageBox.Show("Не удалось обновить статус активности.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                user.IsActive = !newValue;
-                var grid = this.FindName("UsersGrid") as DataGrid;
-                grid?.Items.Refresh();
-                MessageBox.Show($"Ошибка обновления активности: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void ShowOnly(string elementName)
         {
             var names = new[] { "UsersCards", "ProductsCards", "OrdersCards", "CategoriesCards" };
@@ -232,7 +203,7 @@ namespace AppleShopWPF.Pages
             }
         }
 
-        private void EditUser_Click(object sender, RoutedEventArgs e)
+        private async void EditUser_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn && btn.DataContext is ApplShopAPI.Model.User user)
             {
@@ -242,14 +213,8 @@ namespace AppleShopWPF.Pages
                 var result = window.ShowDialog();
                 if (result == true && window.UpdatedUser != null)
                 {
-                    // Обновляем только статус IsActive в карточке
                     user.IsActive = window.UpdatedUser.IsActive;
-                    // Обновим визуализацию текста статуса
-                    var cards = this.FindName("UsersCards") as ScrollViewer;
-                    if (cards != null && cards.Content is ItemsControl items)
-                    {
-                        items.Items.Refresh();
-                    }
+                    await LoadUsersAsync();
                 }
             }
         }

@@ -13,7 +13,6 @@ namespace AppleShopWPF.Windows
         {
             InitializeComponent();
             _currentUser = user;
-            // preload values
             EmailBox.Text = user.Email;
             PhoneBox.Text = user.Phone ?? string.Empty;
             AddressBox.Text = user.DeliveryAddress ?? string.Empty;

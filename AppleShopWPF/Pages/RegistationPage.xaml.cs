@@ -30,7 +30,7 @@ namespace AppleShopWPF.Pages
         public void Entry_window()
         {
             var window = Window.GetWindow(this);
-            window.Title = "Авторизация";
+            window.Title = "Authorization";
             NavigationService.Navigate(new AuthorizationPage());
         }
 
@@ -45,7 +45,6 @@ namespace AppleShopWPF.Pages
             string password = btnPasswordEnter.Password;
             string confirmPassword = btnPasswordVerify.Password;
 
-            // Валидация
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Заполните все поля", "Ошибка",
@@ -67,7 +66,6 @@ namespace AppleShopWPF.Pages
                 return;
             }
 
-            // Показываем курсор ожидания
             Cursor = Cursors.Wait;
             var button = sender as Button;
             button.IsEnabled = false;
@@ -78,12 +76,9 @@ namespace AppleShopWPF.Pages
 
                 if (success)
                 {
-                    // Очищаем поля после успешной регистрации
                     btnEmailEnter.Text = "";
                     btnPasswordEnter.Password = "";
                     btnPasswordVerify.Password = "";
-
-                    // Переходим на страницу авторизации
                     Entry_window();
                 }
             }

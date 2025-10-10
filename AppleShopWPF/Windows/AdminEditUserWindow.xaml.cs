@@ -27,7 +27,6 @@ namespace AppleShopWPF.Windows
         {
             if (DataContext is User dc)
             {
-                // Меняем IsActive напрямую по чекбоксу «Активен»
                 bool desiredActive = (bool)(cbBlocked.IsChecked ?? false);
                 var success = await _apiClient.UpdateUserIsActiveAsync(dc.Id, desiredActive);
                 if (success)
