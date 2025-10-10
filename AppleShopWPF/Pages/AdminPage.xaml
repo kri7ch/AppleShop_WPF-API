@@ -46,9 +46,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TableTitle" Text="Пользователи" FontSize="36" FontFamily="Manjari" Margin="0,0,0,10"/>
+            <TextBlock x:Name="TableTitle" Text="Users" FontSize="36" FontFamily="Manjari" Margin="0,0,0,10"/>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Visible" x:Name="UsersCards">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" Margin="0,12,0,0" Visibility="Visible" x:Name="UsersCards">
                 <Grid>
                     <ItemsControl x:Name="UsersItems">
                         <ItemsControl.ItemsPanel>
@@ -74,22 +74,22 @@
                                         </Grid.RowDefinitions>
 
                                     <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
-                                        <TextBlock Text="ID: " FontWeight="Bold" FontSize="24"/>
+                                        <TextBlock Text="№: " FontWeight="Bold" FontSize="24"/>
                                         <TextBlock Text="{Binding Id}" Margin="4,0" FontSize="24"/>
                                         <TextBlock Text=" • " Margin="6,0" FontSize="24"/>
                                         <TextBlock Text="{Binding Role.Name}" Foreground="#666" FontSize="24"/>
                                         <TextBlock Text=" • " Margin="6,0" FontSize="24"/>
-                                        <TextBlock Text="Статус: " FontWeight="Bold" FontSize="24"/>
+                                        <TextBlock Text="Status: " FontWeight="Bold" FontSize="24"/>
                                         <TextBlock FontSize="24">
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock">
                                                     <Setter Property="Text" Value=""/>
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                                                            <Setter Property="Text" Value="Активен"/>
+                                                            <Setter Property="Text" Value="Active"/>
                                                         </DataTrigger>
                                                         <DataTrigger Binding="{Binding IsActive}" Value="False">
-                                                            <Setter Property="Text" Value="Заблокирован"/>
+                                                            <Setter Property="Text" Value="Blocked"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -103,17 +103,17 @@
                                     </StackPanel>
 
                                     <StackPanel Grid.Row="2" Margin="0,8,0,0">
-                                        <TextBlock Text="Телефон" FontWeight="Bold" FontSize="22"/>
+                                        <TextBlock Text="Phone" FontWeight="Bold" FontSize="22"/>
                                         <TextBlock x:Name="tbPhone" Background="Transparent" FontSize="22">
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock">
                                                     <Setter Property="Text" Value="{Binding Phone}"/>
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding Phone}" Value="">
-                                                            <Setter Property="Text" Value="Номер не указан"/>
+                                                            <Setter Property="Text" Value="The number is not specified"/>
                                                         </DataTrigger>
                                                         <DataTrigger Binding="{Binding Phone}" Value="{x:Null}">
-                                                            <Setter Property="Text" Value="Номер не указан"/>
+                                                            <Setter Property="Text" Value="The number is not specified"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -122,17 +122,17 @@
                                     </StackPanel>
 
                                     <StackPanel Grid.Row="3" Margin="0,8,0,0">
-                                        <TextBlock Text="Адрес доставки" FontWeight="Bold" FontSize="22"/>
+                                        <TextBlock Text="Delivery Address" FontWeight="Bold" FontSize="22"/>
                                         <TextBlock x:Name="tbAddress" Background="Transparent" TextWrapping="Wrap" FontSize="22">
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock">
                                                     <Setter Property="Text" Value="{Binding DeliveryAddress}"/>
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding DeliveryAddress}" Value="">
-                                                            <Setter Property="Text" Value="Адрес не указан"/>
+                                                            <Setter Property="Text" Value="The address is not specified"/>
                                                         </DataTrigger>
                                                         <DataTrigger Binding="{Binding DeliveryAddress}" Value="{x:Null}">
-                                                            <Setter Property="Text" Value="Адрес не указан"/>
+                                                            <Setter Property="Text" Value="The address is not specified"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -141,7 +141,7 @@
                                     </StackPanel>
 
                                         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
-                                            <Button Style="{StaticResource btn_style_buy}" x:Name="btnEditUser" Content="Редактировать" Width="200" Height="56" FontSize="20" Margin="0,0,8,0" Click="EditUser_Click" Background="Black" Foreground="White"/>
+                                            <Button Style="{StaticResource btn_style_buy}" x:Name="btnEditUser" Content="Edit" Width="200" Height="56" FontSize="20" Margin="0,0,8,0" Click="EditUser_Click" Background="Black" Foreground="White"/>
                                         </StackPanel>
                                     </Grid>
                                 </Border>
@@ -149,7 +149,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <TextBlock Text="Нету пользователей" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="There are no users" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -167,7 +167,7 @@
                 </Grid>
             </ScrollViewer>
 
-            <ScrollViewer x:Name="ProductsCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
+            <ScrollViewer x:Name="ProductsCards" Grid.Row="1" VerticalScrollBarVisibility="Hidden" Margin="0,12,0,0" Visibility="Collapsed">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -175,7 +175,7 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Style="{StaticResource btn_style_buy}" Content="Добавить товар" Width="220" Height="56" FontSize="20" Margin="0,0,8,0" Click="AddProduct_Click" Background="Black" Foreground="White"/>
+                        <Button Style="{StaticResource btn_style_buy}" Content="Add a product" Width="220" Height="56" FontSize="20" Margin="0,0,8,0" Click="AddProduct_Click" Background="Black" Foreground="White"/>
                     </StackPanel>
 
                     <ItemsControl x:Name="ProductsItems" Grid.Row="1">
@@ -194,11 +194,11 @@
                                 <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="520" Background="#FFFFFF">
                                     <StackPanel>
                                         <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price, StringFormat=Цена: {0:C}}" Margin="0,6,0,0" FontSize="20"/>
-                                        <TextBlock Text="{Binding StockQuantity, StringFormat=Остаток: {0}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding Price, StringFormat=Price: {0:C}}" Margin="0,6,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding StockQuantity, StringFormat=Count: {0}}" Margin="0,2,0,0" FontSize="20"/>
 
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
-                                            <Button Style="{StaticResource btn_style_buy}" Content="Редактировать" Width="180" Height="48" FontSize="18" Click="EditProduct_Click" Background="Black" Foreground="White"/>
+                                            <Button Style="{StaticResource btn_style_buy}" Content="Edit" Width="180" Height="48" FontSize="18" Click="EditProduct_Click" Background="Black" Foreground="White"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -206,7 +206,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <TextBlock Text="Нету продуктов" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="There are no products" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -224,7 +224,7 @@
                 </Grid>
             </ScrollViewer>
 
-            <ScrollViewer x:Name="OrdersCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
+            <ScrollViewer x:Name="OrdersCards" Grid.Row="1" VerticalScrollBarVisibility="Hidden" Margin="0,12,0,0" Visibility="Collapsed">
                 <Grid>
                     <ItemsControl x:Name="OrdersItems">
                         <ItemsControl.ItemsPanel>
@@ -241,19 +241,19 @@
                             <DataTemplate>
                                 <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="720" Background="#FFFFFF">
                                     <StackPanel>
-                                        <TextBlock Text="{Binding Id, StringFormat=Заказ №{0}}" FontSize="24" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding User.Email, StringFormat=Пользователь: {0}}" Margin="0,6,0,0" FontSize="20"/>
-                                        <TextBlock Text="{Binding TotalAmount, StringFormat=Сумма: {0:C}}" Margin="0,2,0,0" FontSize="20"/>
-                                        <TextBlock Text="{Binding OrderDate, StringFormat=Дата заказа: {0}}" Margin="0,2,0,0" FontSize="20"/>
-                                        <TextBlock Text="{Binding Status.Name, StringFormat=Статус: {0}}" Margin="0,2,0,0" FontSize="20"/>
-                                        <TextBlock Text="{Binding DeliveryAddress, StringFormat=Адрес: {0}}" Margin="0,6,0,0" TextWrapping="Wrap" FontSize="20"/>
+                                        <TextBlock Text="{Binding Id, StringFormat=Order №{0}}" FontSize="24" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding User.Email, StringFormat=User: {0}}" Margin="0,6,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding TotalAmount, StringFormat=The amount: {0:C}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding OrderDate, StringFormat=Order date: {0}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding Status.Name, StringFormat=Status: {0}}" Margin="0,2,0,0" FontSize="20"/>
+                                        <TextBlock Text="{Binding DeliveryAddress, StringFormat=Addres: {0}}" Margin="0,6,0,0" TextWrapping="Wrap" FontSize="20"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <TextBlock Text="Нету заказов" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="There are no orders" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -271,7 +271,7 @@
                 </Grid>
             </ScrollViewer>
 
-            <ScrollViewer x:Name="CategoriesCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
+            <ScrollViewer x:Name="CategoriesCards" Grid.Row="1" VerticalScrollBarVisibility="Hidden" Margin="0,12,0,0" Visibility="Collapsed">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -279,7 +279,7 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Style="{StaticResource btn_style_buy}" Content="Добавить категорию" Width="240" Height="56" FontSize="20" Margin="0,0,8,0" Click="AddCategory_Click" Background="Black" Foreground="White"/>
+                        <Button Style="{StaticResource btn_style_buy}" Content="Add a category" Width="240" Height="56" FontSize="20" Margin="0,0,8,0" Click="AddCategory_Click" Background="Black" Foreground="White"/>
                     </StackPanel>
 
                     <ItemsControl x:Name="CategoriesItems" Grid.Row="1">
@@ -301,7 +301,7 @@
                                         <TextBlock Text="{Binding Description}" Margin="0,6,0,0" TextWrapping="Wrap" FontSize="20"/>
 
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
-                                            <Button Style="{StaticResource btn_style_buy}" Content="Редактировать" Width="180" Height="48" FontSize="18" Click="EditCategory_Click" Background="Black" Foreground="White"/>
+                                            <Button Style="{StaticResource btn_style_buy}" Content="Edit" Width="180" Height="48" FontSize="18" Click="EditCategory_Click" Background="Black" Foreground="White"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -309,7 +309,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <TextBlock Text="Нету категорий" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="There are no categories" FontSize="28" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Visibility" Value="Collapsed"/>

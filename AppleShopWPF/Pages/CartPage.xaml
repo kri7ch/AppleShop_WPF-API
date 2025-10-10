@@ -39,8 +39,7 @@
             </UniformGrid>
         </Border>
 
-        <ScrollViewer Grid.Row="2" Grid.RowSpan="5" Grid.ColumnSpan="4" Grid.Column="0" Margin="20"
-                      VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+        <ScrollViewer Grid.Row="2" Grid.RowSpan="5" Grid.ColumnSpan="4" Grid.Column="0" Margin="20" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
             <ItemsControl x:Name="CartItemsControl">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -50,7 +49,7 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="5" Margin="20" Padding="24" Background="#FFF9F9F9" CornerRadius="16" BorderBrush="#DDD" BorderThickness="1">
+        <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="5" Margin="20" Padding="24" Background="White" CornerRadius="16" BorderBrush="#DDD" BorderThickness="1">
             <StackPanel VerticalAlignment="Bottom">
                 <TextBlock Text="Order Information" FontSize="28" FontWeight="Bold"/>
                 <TextBlock Margin="0,8,0,0" Text="Number of products:" FontSize="20"/>

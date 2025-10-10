@@ -92,7 +92,7 @@ namespace AppleShopWPF.Pages
         private async void UsersButton_Click(object sender, RoutedEventArgs e)
         {
             ShowOnly("UsersCards");
-            SetTableTitle("Пользователи");
+            SetTableTitle("Users");
             try
             {
                 await LoadUsersAsync();
@@ -106,7 +106,7 @@ namespace AppleShopWPF.Pages
         private async void ProductsButton_Click(object sender, RoutedEventArgs e)
         {
             ShowOnly("ProductsCards");
-            SetTableTitle("Продукты");
+            SetTableTitle("Products");
             try
             {
                 await LoadProductsAsync();
@@ -143,7 +143,7 @@ namespace AppleShopWPF.Pages
                 var mainWindow = Window.GetWindow(this) as Windows.MainShopWindow;
                 if (mainWindow != null)
                 {
-                    mainWindow.Title = "Авторизация";
+                    mainWindow.Title = "Authorization";
                     var nav = mainWindow.MainWindFrame.NavigationService;
                     if (nav != null)
                     {
@@ -157,7 +157,7 @@ namespace AppleShopWPF.Pages
                     if (frame != null)
                     {
                         var owner = Window.GetWindow(this);
-                        if (owner != null) owner.Title = "Авторизация";
+                        if (owner != null) owner.Title = "Authorization";
                         var nav2 = frame.NavigationService;
                         if (nav2 != null)
                         {
@@ -168,7 +168,7 @@ namespace AppleShopWPF.Pages
                     else
                     {
                         var newMain = new Windows.MainShopWindow();
-                        newMain.Title = "Авторизация";
+                        newMain.Title = "Authorization";
                         newMain.Show();
                         Window.GetWindow(this)?.Close();
                     }
@@ -184,7 +184,7 @@ namespace AppleShopWPF.Pages
         private async void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
             ShowOnly("OrdersCards");
-            SetTableTitle("Заказы");
+            SetTableTitle("Orders");
             try
             {
                 var orders = await _apiClient.GetOrdersAsync();
@@ -201,7 +201,7 @@ namespace AppleShopWPF.Pages
         private async void CategoriesButton_Click(object sender, RoutedEventArgs e)
         {
             ShowOnly("CategoriesCards");
-            SetTableTitle("Категории");
+            SetTableTitle("Categories");
             try
             {
                 await LoadCategoriesAsync();

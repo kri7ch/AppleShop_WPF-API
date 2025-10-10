@@ -36,11 +36,11 @@ namespace AppleShopWPF.Windows
                 tbStock.Text = _product.StockQuantity.ToString(CultureInfo.InvariantCulture);
                 tbImageCode.Text = _product.ImageCode ?? string.Empty;
                 cbCategory.SelectedValue = _product.CategoryId;
-                Title = "Редактирование товара";
+                Title = "Product Editing";
             }
             else
             {
-                Title = "Добавление товара";
+                Title = "Adding a product";
             }
         }
 

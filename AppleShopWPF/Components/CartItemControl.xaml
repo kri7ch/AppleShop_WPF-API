@@ -17,11 +17,11 @@
 
             <StackPanel Grid.Column="1" Margin="16,0">
                 <TextBlock Text="{Binding Product.Name}" FontSize="24" FontWeight="Bold" TextWrapping="Wrap"/>
-                <TextBlock Margin="0,6,0,0" Text="{Binding Product.Price, StringFormat=Цена: {0} ₽}" FontSize="20"/>
+                <TextBlock Margin="0,6,0,0" Text="{Binding Product.Price, StringFormat=Price: {0} ₽}" FontSize="20"/>
                 <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
-                    <TextBlock Text="Количество:" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="Quantity:" VerticalAlignment="Center" FontSize="20"/>
                     <TextBlock Text="{Binding Quantity}" VerticalAlignment="Center" FontSize="20" Margin="6,0,0,0"/>
-                    <TextBlock Text="  |  На складе:" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="  |  In stock:" VerticalAlignment="Center" FontSize="20"/>
                     <TextBlock Text="{Binding Product.StockQuantity}" VerticalAlignment="Center" FontSize="20" Margin="6,0,0,0"/>
                 </StackPanel>
             </StackPanel>
@@ -29,7 +29,7 @@
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Button Style="{StaticResource btn_style}" Content="-" Width="50" Height="50" Click="Decrease_Click" Margin="0,0,6,0" Background="Black" Foreground="White"/>
                 <Button Style="{StaticResource btn_style}" Content="+" Width="50" Height="50" Click="Increase_Click" Margin="0,0,6,0" Background="Black" Foreground="White"/>
-                <Button Content="Remove" Style="{StaticResource btn_style_buy}" Width="140" Height="50" FontSize="18" Background="#FFB14F4F" Foreground="White" Click="Remove_Click"/>
+                <Button Content="Remove" Style="{StaticResource btn_style_buy}" Margin="0 0 20 0" Width="140" Height="50" FontSize="18" Background="#FFB14F4F" Foreground="White" Click="Remove_Click"/>
             </StackPanel>
         </Grid>
     </Border>

@@ -26,11 +26,11 @@ namespace AppleShopWPF.Windows
             {
                 tbName.Text = _category.Name;
                 tbDescription.Text = _category.Description ?? string.Empty;
-                Title = "Редактирование категории";
+                Title = "Editing a category";
             }
             else
             {
-                Title = "Добавление категории";
+                Title = "Adding a category";
             }
         }
 

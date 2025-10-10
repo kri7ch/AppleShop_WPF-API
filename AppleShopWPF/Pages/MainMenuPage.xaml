@@ -40,7 +40,7 @@
         </Border>
 
         <ScrollViewer Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="5"
-              VerticalScrollBarVisibility="Auto" 
+              VerticalScrollBarVisibility="Hidden" 
               HorizontalScrollBarVisibility="Disabled"
               Margin="20">
             <UniformGrid x:Name="ProductsUniformGrid" 

@@ -51,8 +51,7 @@ namespace AppleShopWPF.Pages
                     var added = await _apiClient.AddToCartAsync((uint)AppState.CurrentUserId, (uint)productId, 1);
                     if (added != null)
                     {
-                        MessageBox.Show($"Товар '{product.Name}' добавлен в корзину!",
-                            "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show($"Товар {product.Name} добавлен в корзину!", "Добавление в корзину", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {

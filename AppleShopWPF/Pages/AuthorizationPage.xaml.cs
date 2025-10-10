@@ -44,7 +44,7 @@ namespace AppleShopWPF.Pages
                 else
                 {
                     var window = Window.GetWindow(this);
-                    window.Title = "Menu";
+                    window.Title = "Apple Spectrum";
                     NavigationService.Navigate(new MainMenuPage());
                 }
             }
