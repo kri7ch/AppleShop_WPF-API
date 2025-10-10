@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using ApplShopAPI.Model;
-// using AppleShopWPF.Models;
+
 
 namespace AppleShopWPF.Services
 {
@@ -111,6 +111,60 @@ namespace AppleShopWPF.Services
             {
                 return new List<Product>();
             }
+        }
+
+        public async Task<Product?> CreateProductAsync(uint categoryId, string name, decimal price, uint stockQuantity, string? imageCode)
+        {
+            try
+            {
+                var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode };
+                var json = JsonSerializer.Serialize(payload);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("http://localhost:5279/api/product", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var created = JsonSerializer.Deserialize<Product>(body, _jsonOptions);
+                    return created;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка создания продукта: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return null;
+        }
+
+        public async Task<Product?> UpdateProductAsync(uint id, uint categoryId, string name, decimal price, uint stockQuantity, string? imageCode)
+        {
+            try
+            {
+                var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode };
+                var json = JsonSerializer.Serialize(payload);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"http://localhost:5279/api/product/{id}", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var updated = JsonSerializer.Deserialize<Product>(body, _jsonOptions);
+                    return updated;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка обновления продукта: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return null;
         }
 
         public async Task<List<User>> GetUsersAsync()
@@ -271,6 +325,60 @@ namespace AppleShopWPF.Services
             {
                 return new List<Category>();
             }
+        }
+
+        public async Task<Category?> CreateCategoryAsync(string name, string? description)
+        {
+            try
+            {
+                var payload = new { Name = name, Description = description };
+                var json = JsonSerializer.Serialize(payload);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("http://localhost:5279/api/category", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var created = JsonSerializer.Deserialize<Category>(body, _jsonOptions);
+                    return created;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка создания категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return null;
+        }
+
+        public async Task<Category?> UpdateCategoryAsync(uint id, string name, string? description)
+        {
+            try
+            {
+                var payload = new { Name = name, Description = description };
+                var json = JsonSerializer.Serialize(payload);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"http://localhost:5279/api/category/{id}", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var updated = JsonSerializer.Deserialize<Category>(body, _jsonOptions);
+                    return updated;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка обновления категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return null;
         }
     }
 }

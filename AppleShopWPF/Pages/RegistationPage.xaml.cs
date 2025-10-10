@@ -1,4 +1,4 @@
-﻿using AppleShopWPF.Services;
+using AppleShopWPF.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,8 +42,8 @@ namespace AppleShopWPF.Pages
         private async void btnRegistClick(object sender, RoutedEventArgs e)
         {
             string email = btnEmailEnter.Text.Trim();
-            string password = btnPasswordEnter.Password;
-            string confirmPassword = btnPasswordVerify.Password;
+            string password = (cbShowPassword1.IsChecked == true) ? tbPasswordVisible1.Text : btnPasswordEnter.Password;
+            string confirmPassword = (cbShowPassword2.IsChecked == true) ? tbPasswordVisible2.Text : btnPasswordVerify.Password;
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
@@ -78,7 +78,9 @@ namespace AppleShopWPF.Pages
                 {
                     btnEmailEnter.Text = "";
                     btnPasswordEnter.Password = "";
+                    tbPasswordVisible1.Text = "";
                     btnPasswordVerify.Password = "";
+                    tbPasswordVisible2.Text = "";
                     Entry_window();
                 }
             }
@@ -87,6 +89,34 @@ namespace AppleShopWPF.Pages
                 Cursor = Cursors.Arrow;
                 button.IsEnabled = true;
             }
+        }
+
+        private void cbShowPassword1_Checked(object sender, RoutedEventArgs e)
+        {
+            tbPasswordVisible1.Text = btnPasswordEnter.Password;
+            tbPasswordVisible1.Visibility = Visibility.Visible;
+            btnPasswordEnter.Visibility = Visibility.Collapsed;
+        }
+
+        private void cbShowPassword1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            btnPasswordEnter.Password = tbPasswordVisible1.Text;
+            btnPasswordEnter.Visibility = Visibility.Visible;
+            tbPasswordVisible1.Visibility = Visibility.Collapsed;
+        }
+
+        private void cbShowPassword2_Checked(object sender, RoutedEventArgs e)
+        {
+            tbPasswordVisible2.Text = btnPasswordVerify.Password;
+            tbPasswordVisible2.Visibility = Visibility.Visible;
+            btnPasswordVerify.Visibility = Visibility.Collapsed;
+        }
+
+        private void cbShowPassword2_Unchecked(object sender, RoutedEventArgs e)
+        {
+            btnPasswordVerify.Password = tbPasswordVisible2.Text;
+            btnPasswordVerify.Visibility = Visibility.Visible;
+            tbPasswordVisible2.Visibility = Visibility.Collapsed;
         }
     }
 }

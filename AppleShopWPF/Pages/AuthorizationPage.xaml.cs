@@ -18,7 +18,7 @@ namespace AppleShopWPF.Pages
         private async void btnEnterClick(object sender, RoutedEventArgs e)
         {
             string email = btnEmailEnter.Text.Trim();
-            string password = btnPasswordEnter.Password;
+            string password = (cbShowPassword.IsChecked == true) ? tbPasswordVisible.Text : btnPasswordEnter.Password;
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
@@ -49,6 +49,20 @@ namespace AppleShopWPF.Pages
                 }
             }
             
+        }
+
+        private void cbShowPassword_Checked(object sender, RoutedEventArgs e)
+        {
+            tbPasswordVisible.Text = btnPasswordEnter.Password;
+            tbPasswordVisible.Visibility = Visibility.Visible;
+            btnPasswordEnter.Visibility = Visibility.Collapsed;
+        }
+
+        private void cbShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+            btnPasswordEnter.Password = tbPasswordVisible.Text;
+            btnPasswordEnter.Visibility = Visibility.Visible;
+            tbPasswordVisible.Visibility = Visibility.Collapsed;
         }
 
         private void Entry_window()

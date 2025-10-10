@@ -5,23 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppleShopWPF.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="420" Background="White">
+             d:DesignHeight="700" d:DesignWidth="420" Background="White">
     <Border>
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="320"/>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="370"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             
-            <Border Grid.Row="0">
+            <Border Grid.Row="0" Margin="0 50 0 0">
                 <Image x:Name="ProductImage" Width="280" Height="320" Stretch="Uniform"/>
             </Border>
 
-            <TextBlock x:Name="ProductNameText" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="40" FontWeight="Bold"/>
+            <TextBlock x:Name="ProductNameText" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontSize="40" FontWeight="Bold"/>
             <TextBlock x:Name="ProductCountText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="36"/>
             <TextBlock x:Name="ProductPriceText" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="36"/>
 

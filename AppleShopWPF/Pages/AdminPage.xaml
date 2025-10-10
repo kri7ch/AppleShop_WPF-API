@@ -36,7 +36,7 @@
                 <Button Style="{StaticResource btn_style_menu}" Content="Products" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="ProductsButton_Click"/>
                 <Button Style="{StaticResource btn_style_menu}" Content="Orders" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="OrdersButton_Click"/>
                 <Button Style="{StaticResource btn_style_menu}" Content="Categories" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="CategoriesButton_Click"/>
-                <Button Style="{StaticResource btn_style_menu}" Content="Выход" Width="260" Height="76" FontSize="36" Background="White" Margin="20" Click="LogoutButton_Click"/>
+                <Button Style="{StaticResource btn_style_menu}" Content="Exit" Width="260" Height="76" FontSize="36" Margin="20" Click="LogoutButton_Click" Background="#FFB14F4F" Foreground="White"/>
             </UniformGrid>
         </Border>
 
@@ -63,7 +63,7 @@
                         </ItemsControl.ItemContainerStyle>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="800" Background="#F7F7F7">
+                                <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="16" Padding="24" Margin="12" Width="800" Background="White">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -169,7 +169,16 @@
 
             <ScrollViewer x:Name="ProductsCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
                 <Grid>
-                    <ItemsControl x:Name="ProductsItems">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource btn_style_buy}" Content="Добавить товар" Width="220" Height="56" FontSize="20" Margin="0,0,8,0" Click="AddProduct_Click" Background="Black" Foreground="White"/>
+                    </StackPanel>
+
+                    <ItemsControl x:Name="ProductsItems" Grid.Row="1">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
@@ -187,6 +196,10 @@
                                         <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Price, StringFormat=Цена: {0:C}}" Margin="0,6,0,0" FontSize="20"/>
                                         <TextBlock Text="{Binding StockQuantity, StringFormat=Остаток: {0}}" Margin="0,2,0,0" FontSize="20"/>
+
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+                                            <Button Style="{StaticResource btn_style_buy}" Content="Редактировать" Width="180" Height="48" FontSize="18" Click="EditProduct_Click" Background="Black" Foreground="White"/>
+                                        </StackPanel>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
@@ -260,7 +273,16 @@
 
             <ScrollViewer x:Name="CategoriesCards" Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,12,0,0" Visibility="Collapsed">
                 <Grid>
-                    <ItemsControl x:Name="CategoriesItems">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource btn_style_buy}" Content="Добавить категорию" Width="240" Height="56" FontSize="20" Margin="0,0,8,0" Click="AddCategory_Click" Background="Black" Foreground="White"/>
+                    </StackPanel>
+
+                    <ItemsControl x:Name="CategoriesItems" Grid.Row="1">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
@@ -277,6 +299,10 @@
                                     <StackPanel>
                                         <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Description}" Margin="0,6,0,0" TextWrapping="Wrap" FontSize="20"/>
+
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+                                            <Button Style="{StaticResource btn_style_buy}" Content="Редактировать" Width="180" Height="48" FontSize="18" Click="EditCategory_Click" Background="Black" Foreground="White"/>
+                                        </StackPanel>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>

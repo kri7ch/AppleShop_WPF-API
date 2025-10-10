@@ -109,6 +109,18 @@ namespace AppleShopWPF.Pages
             SetTableTitle("Продукты");
             try
             {
+                await LoadProductsAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки продуктов: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async Task LoadProductsAsync()
+        {
+            try
+            {
                 var products = await _apiClient.GetProductsAsync();
                 var items = this.FindName("ProductsItems") as ItemsControl;
                 if (items != null)
@@ -192,6 +204,18 @@ namespace AppleShopWPF.Pages
             SetTableTitle("Категории");
             try
             {
+                await LoadCategoriesAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки категорий: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async Task LoadCategoriesAsync()
+        {
+            try
+            {
                 var categories = await _apiClient.GetCategoriesAsync();
                 var items = this.FindName("CategoriesItems") as ItemsControl;
                 if (items != null)
@@ -200,6 +224,56 @@ namespace AppleShopWPF.Pages
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка загрузки категорий: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new AppleShopWPF.Windows.AdminEditProductWindow();
+            window.Owner = Window.GetWindow(this);
+            var result = window.ShowDialog();
+            if (result == true)
+            {
+                await LoadProductsAsync();
+            }
+        }
+
+        private async void EditProduct_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is ApplShopAPI.Model.Product product)
+            {
+                var window = new AppleShopWPF.Windows.AdminEditProductWindow(product);
+                window.Owner = Window.GetWindow(this);
+                var result = window.ShowDialog();
+                if (result == true)
+                {
+                    await LoadProductsAsync();
+                }
+            }
+        }
+
+        private async void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new AppleShopWPF.Windows.AdminEditCategoryWindow();
+            window.Owner = Window.GetWindow(this);
+            var result = window.ShowDialog();
+            if (result == true)
+            {
+                await LoadCategoriesAsync();
+            }
+        }
+
+        private async void EditCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is ApplShopAPI.Model.Category category)
+            {
+                var window = new AppleShopWPF.Windows.AdminEditCategoryWindow(category);
+                window.Owner = Window.GetWindow(this);
+                var result = window.ShowDialog();
+                if (result == true)
+                {
+                    await LoadCategoriesAsync();
+                }
             }
         }
 

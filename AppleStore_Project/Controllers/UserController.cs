@@ -52,7 +52,7 @@ namespace ApplShopAPI.Controllers
 
                 return Ok(new
                 {
-                    Message = "Регистрация успешна",
+                    Message = "Успешная регистрация",
                     UserId = user.Id,
                     Email = user.Email
                 });
@@ -74,7 +74,7 @@ namespace ApplShopAPI.Controllers
                     return Unauthorized("Неверный email или пароль");
 
                 if (user.IsActive != true)
-                    return BadRequest("Аккаунт деактивирован");
+                    return BadRequest("Аккаунт заблокирован");
 
                 return Ok(user);
             }
