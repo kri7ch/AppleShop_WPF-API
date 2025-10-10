@@ -1,5 +1,119 @@
 [
   {
+    "ContainingType": "ApplShopAPI.Controllers.CartController",
+    "Method": "GetCart",
+    "RelativePath": "api/Cart/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.UInt32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ApplShopAPI.Model.CartItem, ApplShopAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ApplShopAPI.Controllers.CartController",
+    "Method": "AddItem",
+    "RelativePath": "api/Cart/{userId}/items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.UInt32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "ApplShopAPI.Controllers.CartController\u002BAddCartItemRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ApplShopAPI.Model.CartItem",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ApplShopAPI.Controllers.CartController",
+    "Method": "UpdateItem",
+    "RelativePath": "api/Cart/{userId}/items/{productId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.UInt32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productId",
+        "Type": "System.UInt32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "ApplShopAPI.Controllers.CartController\u002BUpdateCartItemRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ApplShopAPI.Model.CartItem",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ApplShopAPI.Controllers.CartController",
+    "Method": "RemoveItem",
+    "RelativePath": "api/Cart/{userId}/items/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.UInt32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productId",
+        "Type": "System.UInt32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ApplShopAPI.Controllers.CategoryController",
     "Method": "GetCategories",
     "RelativePath": "api/Category",

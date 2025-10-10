@@ -93,7 +93,7 @@ namespace AppleShopWPF.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppleShopWPF;component/components/productcard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppleShopWPF;V1.0.0.0;component/components/productcard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\ProductCard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

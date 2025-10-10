@@ -4,11 +4,11 @@
     "Projects": [
       {
         "Path": "AppleStore_Project\\ApplShopAPI.csproj",
-        "Action": "StartWithoutDebugging"
+        "Action": "Start"
       },
       {
         "Path": "AppleShopWPF\\AppleShopWPF.csproj",
-        "Action": "StartWithoutDebugging"
+        "Action": "Start"
       }
     ]
   }

@@ -34,7 +34,7 @@
             <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Style="{StaticResource btn_style_menu}" Content="Menu" Width="300" Height="76" FontSize="36" Background="White" Margin="20" Click="btnMenuClick"/>
                 <Button Style="{StaticResource btn_style_menu}" Content="Categories" Width="300" Height="76" FontSize="36" Background="White" Margin="20"/>
-                <Button Style="{StaticResource btn_style_menu}" Content="Basket" Width="300" Height="76" FontSize="36" Background="White" Margin="20"/>
+                <Button Style="{StaticResource btn_style_menu}" Content="Basket" Width="300" Height="76" FontSize="36" Background="White" Margin="20" Click="BasketButton_Click"/>
                 <Button Style="{StaticResource btn_style_menu}" Content="Profile" Width="300" Height="76" FontSize="36" Background="White" Margin="20"/>
             </UniformGrid>
         </Border>

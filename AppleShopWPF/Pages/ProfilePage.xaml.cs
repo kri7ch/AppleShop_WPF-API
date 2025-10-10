@@ -71,6 +71,11 @@ namespace AppleShopWPF.Pages
             NavigationService.Navigate(new MainMenuPage());
         }
 
+        private void BasketButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CartPage());
+        }
+
         private async void Edit_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is User user)

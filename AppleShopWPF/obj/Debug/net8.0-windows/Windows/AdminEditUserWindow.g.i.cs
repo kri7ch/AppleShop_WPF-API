@@ -60,7 +60,7 @@ namespace AppleShopWPF.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppleShopWPF;component/windows/adminedituserwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppleShopWPF;V1.0.0.0;component/windows/adminedituserwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\AdminEditUserWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

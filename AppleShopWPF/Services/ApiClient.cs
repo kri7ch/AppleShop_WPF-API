@@ -380,5 +380,67 @@ namespace AppleShopWPF.Services
             }
             return null;
         }
+
+        // CART METHODS
+        public async Task<List<CartItem>> GetCartAsync(uint userId)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"http://localhost:5279/api/cart/{userId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var items = JsonSerializer.Deserialize<List<CartItem>>(content, _jsonOptions);
+                    return items ?? new List<CartItem>();
+                }
+                return new List<CartItem>();
+            }
+            catch
+            {
+                return new List<CartItem>();
+            }
+        }
+
+        public async Task<CartItem?> AddToCartAsync(uint userId, uint productId, ushort quantity = 1)
+        {
+            try
+            {
+                var payload = new { ProductId = productId, Quantity = quantity };
+                var json = JsonSerializer.Serialize(payload, _jsonOptions);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"http://localhost:5279/api/cart/{userId}/items", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var created = JsonSerializer.Deserialize<CartItem>(body, _jsonOptions);
+                    return created;
+                }
+            }
+            catch { }
+            return null;
+        }
+
+        public async Task<bool> UpdateCartItemAsync(uint userId, uint productId, ushort quantity)
+        {
+            try
+            {
+                var payload = new { Quantity = quantity };
+                var json = JsonSerializer.Serialize(payload, _jsonOptions);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"http://localhost:5279/api/cart/{userId}/items/{productId}", content);
+                return response.IsSuccessStatusCode;
+            }
+            catch { return false; }
+        }
+
+        public async Task<bool> RemoveCartItemAsync(uint userId, uint productId)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/cart/{userId}/items/{productId}");
+                return response.IsSuccessStatusCode;
+            }
+            catch { return false; }
+        }
     }
 }

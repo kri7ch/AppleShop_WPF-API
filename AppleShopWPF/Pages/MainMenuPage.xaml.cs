@@ -41,10 +41,23 @@ namespace AppleShopWPF.Pages
 
                 productCard.InitializeProduct();
 
-                productCard.OnBuyClicked += (productId) =>
+                productCard.OnBuyClicked += async (productId) =>
                 {
-                    MessageBox.Show($"Товар '{product.Name}' добавлен в корзину!",
-                        "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (AppState.CurrentUserId == 0)
+                    {
+                        MessageBox.Show("Сначала авторизуйтесь!", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    var added = await _apiClient.AddToCartAsync((uint)AppState.CurrentUserId, (uint)productId, 1);
+                    if (added != null)
+                    {
+                        MessageBox.Show($"Товар '{product.Name}' добавлен в корзину!",
+                            "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось добавить товар в корзину", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 };
 
                 ProductsUniformGrid.Children.Add(productCard);
@@ -54,6 +67,11 @@ namespace AppleShopWPF.Pages
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ProfilePage());
+        }
+
+        private void BasketButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CartPage());
         }
     }
 }
