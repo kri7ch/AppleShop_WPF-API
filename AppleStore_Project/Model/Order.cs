@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ApplShopAPI.Model;
 
@@ -17,9 +19,14 @@ public partial class Order
 
     public string DeliveryAddress { get; set; } = null!;
 
+    [NotMapped]
+    public string? PaymentMethod { get; set; }
+
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
-    public virtual OrderStatus Status { get; set; } = null!;
+    [JsonIgnore]
+    public virtual OrderStatus? Status { get; set; }
 
-    public virtual User User { get; set; } = null!;
+    [JsonIgnore]
+    public virtual User? User { get; set; }
 }

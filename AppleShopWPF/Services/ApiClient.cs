@@ -23,7 +23,8 @@ namespace AppleShopWPF.Services
             _httpClient.Timeout = TimeSpan.FromSeconds(30);
             _jsonOptions = new JsonSerializerOptions
             {
-                PropertyNameCaseInsensitive = true
+                PropertyNameCaseInsensitive = true,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 
@@ -308,6 +309,58 @@ namespace AppleShopWPF.Services
             }
         }
 
+        public async Task<List<Order>> GetUserOrdersAsync(uint userId)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"http://localhost:5279/api/order/user/{userId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var orders = JsonSerializer.Deserialize<List<Order>>(content, _jsonOptions);
+                    return orders ?? new List<Order>();
+                }
+                return new List<Order>();
+            }
+            catch
+            {
+                return new List<Order>();
+            }
+        }
+
+        public async Task<Order?> CreateOrderAsync(uint userId, string deliveryAddress, List<OrderItem> items, string paymentMethod)
+        {
+            try
+            {
+                var payload = new Order
+                {
+                    UserId = userId,
+                    DeliveryAddress = deliveryAddress,
+                    OrderItems = items,
+                    PaymentMethod = paymentMethod
+                };
+                var json = JsonSerializer.Serialize(payload, _jsonOptions);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("http://localhost:5279/api/order", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var created = JsonSerializer.Deserialize<Order>(body, _jsonOptions);
+                    return created;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка оформления заказа: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return null;
+        }
+
         public async Task<List<Category>> GetCategoriesAsync()
         {
             try
@@ -343,8 +396,15 @@ namespace AppleShopWPF.Services
                 }
                 else
                 {
-                    var error = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Ошибка создания категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+                    {
+                        MessageBox.Show("Категория с таким названием уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        var error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Ошибка создания категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             catch (Exception ex)
@@ -370,8 +430,15 @@ namespace AppleShopWPF.Services
                 }
                 else
                 {
-                    var error = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Ошибка обновления категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+                    {
+                        MessageBox.Show("Категория с таким названием уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        var error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Ошибка обновления категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             catch (Exception ex)
@@ -438,6 +505,16 @@ namespace AppleShopWPF.Services
             try
             {
                 var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/cart/{userId}/items/{productId}");
+                return response.IsSuccessStatusCode;
+            }
+            catch { return false; }
+        }
+
+        public async Task<bool> ClearCartAsync(uint userId)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/cart/{userId}");
                 return response.IsSuccessStatusCode;
             }
             catch { return false; }

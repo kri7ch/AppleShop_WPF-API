@@ -18,10 +18,7 @@ namespace ApplShopAPI.Controllers
         [HttpGet("{userId}")]
         public async Task<ActionResult<IEnumerable<CartItem>>> GetCart(uint userId)
         {
-            var items = await _context.CartItems
-                .Include(ci => ci.Product)
-                .Where(ci => ci.UserId == userId)
-                .ToListAsync();
+            var items = await _context.CartItems.Include(ci => ci.Product).Where(ci => ci.UserId == userId).ToListAsync();
             return Ok(items);
         }
 
@@ -35,14 +32,23 @@ namespace ApplShopAPI.Controllers
         public async Task<ActionResult<CartItem>> AddItem(uint userId, [FromBody] AddCartItemRequest request)
         {
             var product = await _context.Products.FindAsync(request.ProductId);
-            if (product == null) return NotFound("Product not found");
+            if (product == null) return NotFound("Товар не найден");
 
             var existing = await _context.CartItems
                 .FirstOrDefaultAsync(ci => ci.UserId == userId && ci.ProductId == request.ProductId);
 
             if (existing != null)
             {
-                existing.Quantity = (ushort)(existing.Quantity + (request.Quantity == 0 ? 1 : request.Quantity));
+                var delta = (ushort)(request.Quantity == 0 ? 1 : request.Quantity);
+                var newQuantity = (uint)existing.Quantity + delta;
+                if (newQuantity > product.StockQuantity)
+                {
+                    existing.Quantity = (ushort)product.StockQuantity;
+                }
+                else
+                {
+                    existing.Quantity = (ushort)newQuantity;
+                }
                 await _context.SaveChangesAsync();
                 return Ok(existing);
             }
@@ -51,7 +57,7 @@ namespace ApplShopAPI.Controllers
             {
                 UserId = userId,
                 ProductId = request.ProductId,
-                Quantity = request.Quantity == 0 ? (ushort)1 : request.Quantity
+                Quantity = (ushort)Math.Min(product.StockQuantity, (uint)(request.Quantity == 0 ? 1 : request.Quantity))
             };
             _context.CartItems.Add(item);
             await _context.SaveChangesAsync();
@@ -76,9 +82,27 @@ namespace ApplShopAPI.Controllers
                 return NoContent();
             }
 
-            item.Quantity = request.Quantity;
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+            {
+                return NotFound("Товар не найден");
+            }
+
+            var capped = (ushort)Math.Min((int)product.StockQuantity, (int)request.Quantity);
+            item.Quantity = capped;
             await _context.SaveChangesAsync();
             return Ok(item);
+        }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> ClearCart(uint userId)
+        {
+            var items = await _context.CartItems.Where(ci => ci.UserId == userId).ToListAsync();
+            if (items.Count == 0) return NoContent();
+
+            _context.CartItems.RemoveRange(items);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
 
         [HttpDelete("{userId}/items/{productId}")]

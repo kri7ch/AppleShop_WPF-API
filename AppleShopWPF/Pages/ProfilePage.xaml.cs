@@ -76,6 +76,11 @@ namespace AppleShopWPF.Pages
             NavigationService.Navigate(new CartPage());
         }
 
+        private void CategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CategoriesPage());
+        }
+
         private async void Edit_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is User user)
@@ -120,6 +125,14 @@ namespace AppleShopWPF.Pages
                     DataContext = modal.UpdatedUser;
                 }
             }
+        }
+
+        private void ViewOrders_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new AppleShopWPF.Windows.OrdersWindow();
+            window.Owner = Window.GetWindow(this);
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
         }
 
     }

@@ -77,3 +77,9 @@ C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-win
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\CartPage.g.cs
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Components\CartItemControl.baml
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Components\CartItemControl.g.cs
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Windows\OrderWindow.baml
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Windows\OrderWindow.g.cs
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Windows\OrdersWindow.baml
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Windows\OrdersWindow.g.cs
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\CategoriesPage.baml
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Pages\CategoriesPage.g.cs

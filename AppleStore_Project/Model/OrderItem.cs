@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace ApplShopAPI.Model;
 
@@ -15,7 +16,9 @@ public partial class OrderItem
 
     public decimal Price { get; set; }
 
-    public virtual Order Order { get; set; } = null!;
+    [JsonIgnore]
+    public virtual Order? Order { get; set; }
 
-    public virtual Product Product { get; set; } = null!;
+    [JsonIgnore]
+    public virtual Product? Product { get; set; }
 }

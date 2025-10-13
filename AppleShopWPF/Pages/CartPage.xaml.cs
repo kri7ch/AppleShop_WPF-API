@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,17 +32,7 @@ namespace AppleShopWPF.Pages
                 return;
             }
 
-            _items = await _apiClient.GetCartAsync((uint)AppState.CurrentUserId);
-            CartItemsControl.Items.Clear();
-            foreach (var cartItem in _items)
-            {
-                var card = new CartItemControl { DataContext = cartItem };
-                card.IncreaseRequested += Increase_Click;
-                card.DecreaseRequested += Decrease_Click;
-                card.RemoveRequested += Remove_Click;
-                CartItemsControl.Items.Add(card);
-            }
-            UpdateTotals();
+            await ReloadCartAsync();
         }
 
         private void UpdateTotals()
@@ -60,6 +51,21 @@ namespace AppleShopWPF.Pages
                     return ctrl;
             }
             return null;
+        }
+
+        private async Task ReloadCartAsync()
+        {
+            _items = await _apiClient.GetCartAsync((uint)AppState.CurrentUserId);
+            CartItemsControl.Items.Clear();
+            foreach (var cartItem in _items)
+            {
+                var card = new CartItemControl { DataContext = cartItem };
+                card.IncreaseRequested += Increase_Click;
+                card.DecreaseRequested += Decrease_Click;
+                card.RemoveRequested += Remove_Click;
+                CartItemsControl.Items.Add(card);
+            }
+            UpdateTotals();
         }
 
         private async void Increase_Click(object sender, RoutedEventArgs e)
@@ -87,7 +93,6 @@ namespace AppleShopWPF.Pages
                 var view = GetControlForItem(item);
                 if (view != null)
                 {
-                    // Сбросим DataContext, чтобы биндинги перечитались
                     view.DataContext = null;
                     view.DataContext = item;
                 }
@@ -156,9 +161,30 @@ namespace AppleShopWPF.Pages
             }
         }
 
-        private void PlaceOrder_Click(object sender, RoutedEventArgs e)
+        private async void PlaceOrder_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Пока тиха", "Инфо", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (_items == null || _items.Count == 0)
+            {
+                MessageBox.Show("Корзина пуста", "Инфо", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var win = new AppleShopWPF.Windows.OrderWindow(_items)
+            {
+                Owner = Window.GetWindow(this),
+                Topmost = true
+            };
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                var cleared = await _apiClient.ClearCartAsync((uint)AppState.CurrentUserId);
+                if (!cleared)
+                {
+                    MessageBox.Show("Заказ оформлен, но не удалось очистить корзину", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                await ReloadCartAsync();
+                MessageBox.Show("Заказ оформлен!", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -169,6 +195,11 @@ namespace AppleShopWPF.Pages
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ProfilePage());
+        }
+
+        private void CategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new CategoriesPage());
         }
 
         private void CartItemImage_Loaded(object sender, RoutedEventArgs e)

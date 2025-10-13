@@ -29,7 +29,7 @@ namespace ApplShopAPI.Controllers
         public async Task<ActionResult<Product>> CreateProduct([FromBody] Product request)
         {
             if (string.IsNullOrWhiteSpace(request.Name))
-                return BadRequest("Name is required");
+                return BadRequest("Требуется указать название");
 
             var product = new Product
             {
@@ -59,6 +59,17 @@ namespace ApplShopAPI.Controllers
             product.StockQuantity = request.StockQuantity;
             if (request.StatusId != 0)
                 product.StatusId = request.StatusId;
+
+            if (product.StockQuantity == 0)
+            {
+                var outOfStockItems = await _context.CartItems
+                    .Where(ci => ci.ProductId == product.Id)
+                    .ToListAsync();
+                if (outOfStockItems.Count > 0)
+                {
+                    _context.CartItems.RemoveRange(outOfStockItems);
+                }
+            }
 
             await _context.SaveChangesAsync();
             return Ok(product);

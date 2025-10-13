@@ -54,5 +54,8 @@
     <Page Update="Windows\MainShopWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Windows\OrderWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

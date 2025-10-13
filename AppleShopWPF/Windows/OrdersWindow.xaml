@@ -1,0 +1,89 @@
+<Window x:Class="AppleShopWPF.Windows.OrdersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Мои заказы"
+        Height="900" Width="1100"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False">
+    <Grid>
+        <Border CornerRadius="16" Background="White" Padding="24" HorizontalAlignment="Center" VerticalAlignment="Center" Width="900" Height="750" BorderThickness="1" BorderBrush="#DDD">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity="0.4"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="My orders" FontSize="34" FontWeight="Bold"/>
+                    <Button Style="{StaticResource btn_style_buy}" Grid.Column="1" Content="✕" Width="44" Height="44" Background="#111" Foreground="White" BorderBrush="#111" Cursor="Hand" Click="Close_Click"/>
+                </Grid>
+
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" >
+                    <Grid>
+                    <ItemsControl x:Name="OrdersByDateList" Margin="0,12,0,0">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,20">
+                                    <TextBlock Text="{Binding DateHeader}" FontSize="24" FontWeight="Bold"/>
+                                    <ItemsControl ItemsSource="{Binding Orders}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Margin="0,8,0,8" CornerRadius="12" Background="#F9F9FB" BorderBrush="#EEE" BorderThickness="1" Padding="16">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="3*"/>
+                                                            <ColumnDefinition Width="1.2*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackPanel>
+                                                            <TextBlock Text="{Binding OrderDate, StringFormat=yyyy-MM-dd HH:mm}" FontWeight="SemiBold" FontSize="16"/>
+                                                            <TextBlock Text="{Binding DeliveryAddress}" Foreground="#666" FontSize="16"/>
+                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="1" Text="{Binding TotalAmount, StringFormat={}{0:N2} ₽}" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold"/>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Text="There are no orders" FontSize="22" Foreground="#666" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ItemsSource, ElementName=OrdersByDateList}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding HasItems, ElementName=OrdersByDateList}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    </Grid>
+                </ScrollViewer>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource btn_style_buy}" Content="Close" Width="160" Height="44" Background="#111" FontSize="16" Foreground="White" BorderBrush="#111" Click="Close_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

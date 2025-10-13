@@ -36,7 +36,7 @@ namespace ApplShopAPI.Controllers
             try
             {
                 if (await _context.Users.AnyAsync(u => u.Email == request.Email))
-                    return BadRequest("Пользователь с таким email уже существует");
+                    return BadRequest("Пользователь с такой почтой уже существует");
 
                 var user = new User
                 {
@@ -71,7 +71,7 @@ namespace ApplShopAPI.Controllers
                 var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Email == request.Email);
 
                 if (user == null || !VerifyPassword(request.Password, user.PasswordHash))
-                    return Unauthorized("Неверный email или пароль");
+                    return Unauthorized("Неверная почта или пароль");
 
                 if (user.IsActive != true)
                     return BadRequest("Аккаунт заблокирован");
@@ -116,11 +116,11 @@ namespace ApplShopAPI.Controllers
                 if (!string.IsNullOrWhiteSpace(request.Email) && request.Email != user.Email)
                 { 
                     if (!new EmailAddressAttribute().IsValid(request.Email))
-                        return BadRequest("Некорректный формат email");
+                        return BadRequest("Некорректный формат почты");
 
                     var exists = await _context.Users.AnyAsync(u => u.Email == request.Email && u.Id != id);
                     if (exists)
-                        return BadRequest("Email уже используется другим пользователем");
+                        return BadRequest("Почта уже используется другим пользователем");
 
                     user.Email = request.Email!;
                 }
@@ -180,8 +180,7 @@ namespace ApplShopAPI.Controllers
             if (!string.IsNullOrWhiteSpace(q))
             {
                 var lower = q.ToLower();
-                queryable = queryable.Where(u =>
-                    u.Email.ToLower().Contains(lower) ||
+                queryable = queryable.Where(u => u.Email.ToLower().Contains(lower) ||
                     (u.Phone != null && u.Phone.ToLower().Contains(lower)) ||
                     (u.DeliveryAddress != null && u.DeliveryAddress.ToLower().Contains(lower))
                 );

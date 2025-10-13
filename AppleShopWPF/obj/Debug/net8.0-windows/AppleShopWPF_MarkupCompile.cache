@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\App.xaml
-14-915861433
+17-753396880
 1888039067
-18217780075
+21114139813
 3461726034383
-Components\CartItemControl.xaml;Components\ProductCard.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Pages\CartPage.xaml;Pages\MainMenuPage.xaml;Pages\ProfilePage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\AdminEditCategoryWindow.xaml;Windows\AdminEditProductWindow.xaml;Windows\AdminEditUserWindow.xaml;Windows\EditProfileWindow.xaml;Windows\MainShopWindow.xaml;
+Components\CartItemControl.xaml;Components\ProductCard.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Pages\CartPage.xaml;Pages\CategoriesPage.xaml;Pages\MainMenuPage.xaml;Pages\ProfilePage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\AdminEditCategoryWindow.xaml;Windows\AdminEditProductWindow.xaml;Windows\AdminEditUserWindow.xaml;Windows\EditProfileWindow.xaml;Windows\MainShopWindow.xaml;Windows\OrdersWindow.xaml;Windows\OrderWindow.xaml;
 
 False
 

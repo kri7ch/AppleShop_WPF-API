@@ -72,5 +72,10 @@ namespace AppleShopWPF.Pages
         {
             NavigationService.Navigate(new CartPage());
         }
+
+        private void CategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CategoriesPage());
+        }
     }
 }
