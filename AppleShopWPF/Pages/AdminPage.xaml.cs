@@ -134,7 +134,7 @@ namespace AppleShopWPF.Pages
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            var msgExit = MessageBox.Show("Вы точно хотите выйти?", "Проверка", MessageBoxButton.YesNo);
+            var msgExit = MessageBox.Show("Вы точно хотите выйти?", "Проверка", MessageBoxButton.YesNo, MessageBoxImage.Stop);
             if (msgExit == MessageBoxResult.Yes)
             {
                 AppleShopWPF.Services.AppState.CurrentUserId = 0;
@@ -252,6 +252,28 @@ namespace AppleShopWPF.Pages
             }
         }
 
+        private async void DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is ApplShopAPI.Model.Product product)
+            {
+                var confirm = MessageBox.Show($"Удалить продукт '{product.Name}'?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (confirm != MessageBoxResult.Yes) return;
+
+                try
+                {
+                    var ok = await _apiClient.DeleteProductAsync(product.Id);
+                    if (ok)
+                    {
+                        await LoadProductsAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка удаления продукта: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private async void AddCategory_Click(object sender, RoutedEventArgs e)
         {
             var window = new AppleShopWPF.Windows.AdminEditCategoryWindow();
@@ -273,6 +295,30 @@ namespace AppleShopWPF.Pages
                 if (result == true)
                 {
                     await LoadCategoriesAsync();
+                }
+            }
+        }
+
+        private async void DeleteCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is ApplShopAPI.Model.Category category)
+            {
+                var confirm = MessageBox.Show($"Удалить категорию '{category.Name}' вместе с её товарами?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (confirm != MessageBoxResult.Yes) return;
+
+                try
+                {
+                    var ok = await _apiClient.DeleteCategoryAsync(category.Id);
+                    if (ok)
+                    {
+                        await LoadCategoriesAsync();
+                        // при удалении категории возможно изменится список продуктов
+                        await LoadProductsAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка удаления категории: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

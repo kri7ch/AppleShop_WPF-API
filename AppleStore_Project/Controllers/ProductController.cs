@@ -74,5 +74,24 @@ namespace ApplShopAPI.Controllers
             await _context.SaveChangesAsync();
             return Ok(product);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(uint id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound("Продукт не найден");
+
+            var hasOrderItems = await _context.OrderItems.AnyAsync(oi => oi.ProductId == id);
+            if (hasOrderItems)
+                return Conflict("Невозможно удалить продукт, он находиться в заказе");
+
+            var cartItems = await _context.CartItems.Where(ci => ci.ProductId == id).ToListAsync();
+            if (cartItems.Count > 0)
+                _context.CartItems.RemoveRange(cartItems);
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }

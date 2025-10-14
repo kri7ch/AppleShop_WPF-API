@@ -55,7 +55,7 @@ namespace AppleShopWPF.Pages
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Выйти из аккаунта?", "Утверждение выхода", MessageBoxButton.YesNo);
+            var result = MessageBox.Show("Выйти из аккаунта?", "Подтверждение выхода", MessageBoxButton.YesNo, MessageBoxImage.Stop);
             if (result == MessageBoxResult.Yes)
             {
                 NavigationService.Navigate(new AuthorizationPage());

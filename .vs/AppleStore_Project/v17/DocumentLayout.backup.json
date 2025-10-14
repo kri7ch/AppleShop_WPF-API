@@ -3,8 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\model\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\model\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\model\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\model\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\windows\\orderswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\windows\\orderswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\pages\\mainmenupage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\mainmenupage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\pages\\categoriespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\categoriespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\pages\\categoriespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\categoriespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\windows\\orderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\windows\\orderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\windows\\orderswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -21,26 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\pages\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\windows\\orderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\windows\\orderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\model\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\model\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\components\\cartitemcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -61,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\pages\\cartpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\cartpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\pages\\mainmenupage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\mainmenupage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\windows\\admineditcategorywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -119,16 +139,8 @@
       "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\pages\\registationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|solutionrelative:appleshopwpf\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\applestore_project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85670A6-DAFE-4683-8EDC-A8AEC97884DC}|AppleStore_Project\\ApplShopAPI.csproj|solutionrelative:applestore_project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB22B892-825C-466B-ACB0-8094891C0DAF}|AppleShopWPF\\AppleShopWPF.csproj|c:\\users\\rakhm\\source\\repos\\applestore_project\\appleshopwpf\\services\\appstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,11 +154,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "Style.xaml",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Style.xaml",
               "RelativeDocumentMoniker": "AppleShopWPF\\Style.xaml",
@@ -154,83 +166,7 @@
               "RelativeToolTip": "AppleShopWPF\\Style.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-09-24T03:13:53.611Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoriesPage.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CategoriesPage.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CategoriesPage.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CategoriesPage.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\CategoriesPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-13T11:08:30.877Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrdersWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrdersWindow.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrdersWindow.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrdersWindow.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\OrdersWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-13T10:46:24.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Model\\OrderItem.cs",
-              "RelativeDocumentMoniker": "AppleStore_Project\\Model\\OrderItem.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Model\\OrderItem.cs",
-              "RelativeToolTip": "AppleStore_Project\\Model\\OrderItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T09:53:50.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\CartController.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\CartController.cs",
-              "RelativeToolTip": "AppleStore_Project\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T09:52:12.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwI0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T08:37:11.728Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrderWindow.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\OrderWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-13T08:25:15.634Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -246,163 +182,80 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Model\\Order.cs",
+              "RelativeDocumentMoniker": "AppleStore_Project\\Model\\Order.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Model\\Order.cs",
+              "RelativeToolTip": "AppleStore_Project\\Model\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:20:15.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrdersWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrdersWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrdersWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrdersWindow.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\OrdersWindow.xaml.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:18:08.205Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "MainMenuPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAwwC8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T03:11:30.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\CartController.cs",
+              "RelativeToolTip": "AppleStore_Project\\Controllers\\CartController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwBUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T09:52:12.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\CategoryController.cs",
               "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "AppleStore_Project\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T12:18:43.105Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProfilePage.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\ProfilePage.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\ProfilePage.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\ProfilePage.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\ProfilePage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-03T03:11:50.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainMenuPage.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\MainMenuPage.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\MainMenuPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-03T03:11:39.299Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CartItemControl.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\CartItemControl.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Components\\CartItemControl.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\CartItemControl.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Components\\CartItemControl.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-10T05:34:06.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CartPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml.cs",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CartPage.xaml.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml.cs",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\CartPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T04:54:34.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AdminEditProductWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAIwCsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T06:20:15.104Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CartPage.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CartPage.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\CartPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-10T04:50:19.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\OrderController.cs",
               "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\OrderController.cs",
               "RelativeToolTip": "AppleStore_Project\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T04:42:35.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-03T04:42:35.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AdminEditCategoryWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAcwBwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T06:20:09.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AdminEditProductWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-10T04:03:48.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "AdminEditCategoryWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-10T04:03:03.415Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "RegistationPage.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\RegistationPage.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\RegistationPage.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\RegistationPage.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\RegistationPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-10T03:28:34.284Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ProductCard.xaml",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\ProductCard.xaml",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Components\\ProductCard.xaml",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\ProductCard.xaml",
-              "RelativeToolTip": "AppleShopWPF\\Components\\ProductCard.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-10T03:18:12.587Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\ProductController.cs",
@@ -414,7 +267,212 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\UserController.cs",
+              "RelativeToolTip": "AppleStore_Project\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T04:19:41.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Model\\OrderItem.cs",
+              "RelativeDocumentMoniker": "AppleStore_Project\\Model\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Model\\OrderItem.cs",
+              "RelativeToolTip": "AppleStore_Project\\Model\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T09:53:50.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CategoriesPage.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CategoriesPage.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CategoriesPage.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CategoriesPage.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\CategoriesPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-13T11:08:30.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CategoriesPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CategoriesPage.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CategoriesPage.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CategoriesPage.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\CategoriesPage.xaml.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:18:17.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\OrderWindow.xaml.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAiwI0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:37:11.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OrdersWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrdersWindow.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrdersWindow.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrdersWindow.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\OrdersWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-13T10:46:24.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OrderWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\OrderWindow.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\OrderWindow.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\OrderWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-13T08:25:15.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProfilePage.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\ProfilePage.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\ProfilePage.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\ProfilePage.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\ProfilePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-03T03:11:50.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MainMenuPage.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\MainMenuPage.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\MainMenuPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-03T03:11:39.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CartItemControl.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\CartItemControl.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Components\\CartItemControl.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\CartItemControl.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Components\\CartItemControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-10T05:34:06.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CartPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CartPage.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\CartPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T04:54:34.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AdminEditProductWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwCsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T06:20:15.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CartPage.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\CartPage.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\CartPage.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\CartPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-10T04:50:19.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AdminEditCategoryWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwBwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T06:20:09.892Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 27,
+              "Title": "AdminEditProductWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditProductWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-10T04:03:48.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AdminEditCategoryWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Windows\\AdminEditCategoryWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-10T04:03:03.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "RegistationPage.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\RegistationPage.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\RegistationPage.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\RegistationPage.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Pages\\RegistationPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-10T03:28:34.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ProductCard.xaml",
+              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\ProductCard.xaml",
+              "RelativeDocumentMoniker": "AppleShopWPF\\Components\\ProductCard.xaml",
+              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Components\\ProductCard.xaml",
+              "RelativeToolTip": "AppleShopWPF\\Components\\ProductCard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-10T03:18:12.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
               "Title": "EditProfileWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\EditProfileWindow.xaml.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\EditProfileWindow.xaml.cs",
@@ -426,7 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "RegistationPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\RegistationPage.xaml.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\RegistationPage.xaml.cs",
@@ -438,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "AdminEditUserWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditUserWindow.xaml.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditUserWindow.xaml.cs",
@@ -450,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "AdminEditUserWindow.xaml",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\AdminEditUserWindow.xaml",
               "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\AdminEditUserWindow.xaml",
@@ -461,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "EditProfileWindow.xaml",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Windows\\EditProfileWindow.xaml",
               "RelativeDocumentMoniker": "AppleShopWPF\\Windows\\EditProfileWindow.xaml",
@@ -472,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "AuthorizationPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\AuthorizationPage.xaml.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\AuthorizationPage.xaml.cs",
@@ -484,7 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "AppState.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Services\\AppState.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Services\\AppState.cs",
@@ -496,19 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "AppleStore_Project\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleStore_Project\\Controllers\\UserController.cs",
-              "RelativeToolTip": "AppleStore_Project\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAgwDYAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T04:19:41.697Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "AdminPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\AdminPage.xaml.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\AdminPage.xaml.cs",
@@ -520,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "AdminPage.xaml",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\AdminPage.xaml",
               "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\AdminPage.xaml",
@@ -531,20 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MainMenuPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
-              "RelativeDocumentMoniker": "AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
-              "ToolTip": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
-              "RelativeToolTip": "AppleShopWPF\\Pages\\MainMenuPage.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC8AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T03:11:30.789Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "ApiClient.cs",
               "DocumentMoniker": "C:\\Users\\rakhm\\source\\repos\\AppleStore_Project\\AppleShopWPF\\Services\\ApiClient.cs",
               "RelativeDocumentMoniker": "AppleShopWPF\\Services\\ApiClient.cs",

@@ -118,7 +118,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode };
+                var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode, StatusId = 1u };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync("http://localhost:5279/api/product", content);
@@ -145,7 +145,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode };
+                var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode, StatusId = 1u };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PutAsync($"http://localhost:5279/api/product/{id}", content);
@@ -166,6 +166,46 @@ namespace AppleShopWPF.Services
                 MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return null;
+        }
+
+        public async Task<bool> DeleteProductAsync(uint id)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/product/{id}");
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка удаления продукта: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteCategoryAsync(uint id)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/category/{id}");
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Ошибка удаления категории: {error}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка подключения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
         }
 
         public async Task<List<User>> GetUsersAsync()
@@ -448,7 +488,6 @@ namespace AppleShopWPF.Services
             return null;
         }
 
-        // CART METHODS
         public async Task<List<CartItem>> GetCartAsync(uint userId)
         {
             try

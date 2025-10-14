@@ -16,5 +16,5 @@ C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\App.xaml
 3461726034383
 Components\CartItemControl.xaml;Components\ProductCard.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Pages\CartPage.xaml;Pages\CategoriesPage.xaml;Pages\MainMenuPage.xaml;Pages\ProfilePage.xaml;Pages\RegistationPage.xaml;Style.xaml;Windows\AdminEditCategoryWindow.xaml;Windows\AdminEditProductWindow.xaml;Windows\AdminEditUserWindow.xaml;Windows\EditProfileWindow.xaml;Windows\MainShopWindow.xaml;Windows\OrdersWindow.xaml;Windows\OrderWindow.xaml;
 
-False
+True
 
