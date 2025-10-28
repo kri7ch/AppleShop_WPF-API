@@ -10,10 +10,14 @@ namespace ApplShopAPI.Controllers
     public class OrderController : ControllerBase
     {
         private readonly AppleStoreContext _context;
+        private readonly ApplShopAPI.Services.ReceiptService _receiptService;
+        private readonly ApplShopAPI.Services.EmailService _emailService;
 
-        public OrderController(AppleStoreContext context)
+        public OrderController(AppleStoreContext context, ApplShopAPI.Services.ReceiptService receiptService, ApplShopAPI.Services.EmailService emailService)
         {
             _context = context;
+            _receiptService = receiptService;
+            _emailService = emailService;
         }
 
         [HttpGet]
@@ -30,12 +34,7 @@ namespace ApplShopAPI.Controllers
             var exists = await _context.Users.AnyAsync(u => u.Id == userId);
             if (!exists) return NotFound("Пользователь не найден");
 
-            var orders = await _context.Orders
-                .Where(o => o.UserId == userId)
-                .Include(o => o.Status)
-                .Include(o => o.OrderItems)
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
+            var orders = await _context.Orders.Where(o => o.UserId == userId).Include(o => o.Status).Include(o => o.OrderItems).OrderByDescending(o => o.OrderDate).ToListAsync();
 
             return Ok(orders);
         }
@@ -101,9 +100,7 @@ namespace ApplShopAPI.Controllers
 
                     if (product.StockQuantity == 0)
                     {
-                        var outOfStockItems = await _context.CartItems
-                            .Where(ci => ci.ProductId == product.Id)
-                            .ToListAsync();
+                        var outOfStockItems = await _context.CartItems.Where(ci => ci.ProductId == product.Id).ToListAsync();
                         if (outOfStockItems.Count > 0)
                         {
                             _context.CartItems.RemoveRange(outOfStockItems);
@@ -121,7 +118,31 @@ namespace ApplShopAPI.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            var created = await _context.Orders.Include(o => o.User).Include(o => o.Status).Include(o => o.OrderItems).FirstAsync(o => o.Id == order.Id);
+            var created = await _context.Orders.Include(o => o.User).Include(o => o.Status).Include(o => o.OrderItems).ThenInclude(oi => oi.Product).FirstAsync(o => o.Id == order.Id);
+
+            created.PaymentMethod = payment;
+
+            try
+            {
+                var pdf = _receiptService.Generate(created);
+                var recipient = created.User?.Email ?? user.Email;
+                _ = Task.Run(async () =>
+                {
+                    try
+                    {
+                        await _emailService.SendReceiptAsync(recipient!, pdf, created.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Ошибка отправки письма: {ex.Message}");
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка отправки письма: {ex.Message}");
+            }
+
             return Ok(created);
         }
     }

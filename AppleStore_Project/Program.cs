@@ -1,11 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using ApplShopAPI.Model;
+using ApplShopAPI.Services;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Configure QuestPDF license to suppress console notice and comply with usage.
+QuestPDF.Settings.License = LicenseType.Community;
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
@@ -15,6 +20,11 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// SMTP options and app services
+builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection("Smtp"));
+builder.Services.AddSingleton<ReceiptService>();
+builder.Services.AddSingleton<EmailService>();
 
 builder.Services.AddDbContext<AppleStoreContext>(options =>
     options.UseMySql(

@@ -34,8 +34,7 @@ namespace ApplShopAPI.Controllers
             var product = await _context.Products.FindAsync(request.ProductId);
             if (product == null) return NotFound("Товар не найден");
 
-            var existing = await _context.CartItems
-                .FirstOrDefaultAsync(ci => ci.UserId == userId && ci.ProductId == request.ProductId);
+            var existing = await _context.CartItems.FirstOrDefaultAsync(ci => ci.UserId == userId && ci.ProductId == request.ProductId);
 
             if (existing != null)
             {

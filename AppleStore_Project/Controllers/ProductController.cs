@@ -28,6 +28,17 @@ namespace ApplShopAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct([FromBody] Product request)
         {
+            if (request.CategoryId <= 0)
+            {
+                return BadRequest("Укажите id категории");
+            }
+
+            var cat = await _context.Categories.Where(ci => ci.Id == request.CategoryId).ToListAsync();
+            if (cat.Count <= 0)
+            {
+                return BadRequest("Укажите существующую категорию");
+            }
+
             if (string.IsNullOrWhiteSpace(request.Name))
                 return BadRequest("Требуется указать название");
 
@@ -62,9 +73,7 @@ namespace ApplShopAPI.Controllers
 
             if (product.StockQuantity == 0)
             {
-                var outOfStockItems = await _context.CartItems
-                    .Where(ci => ci.ProductId == product.Id)
-                    .ToListAsync();
+                var outOfStockItems = await _context.CartItems.Where(ci => ci.ProductId == product.Id).ToListAsync();
                 if (outOfStockItems.Count > 0)
                 {
                     _context.CartItems.RemoveRange(outOfStockItems);

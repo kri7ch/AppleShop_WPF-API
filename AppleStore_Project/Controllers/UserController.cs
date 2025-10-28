@@ -89,9 +89,7 @@ namespace ApplShopAPI.Controllers
         {
             try
             {
-                var user = await _context.Users
-                    .Include(u => u.Role)
-                    .FirstOrDefaultAsync(u => u.Id == id);
+                var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Id == id);
 
                 if (user == null)
                     return NotFound("Пользователь не найден");
@@ -186,9 +184,7 @@ namespace ApplShopAPI.Controllers
                 );
             }
 
-            var users = await queryable
-                .OrderBy(u => u.Id)
-                .ToListAsync();
+            var users = await queryable.OrderBy(u => u.Id).ToListAsync();
 
             return Ok(users);
         }
