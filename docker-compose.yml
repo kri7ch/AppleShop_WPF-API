@@ -1,0 +1,32 @@
+volumes:
+  my-datavolume:
+
+services:
+ db:
+  image: mysql
+  volumes:
+    - my-datavolume:/var/lib/mysql
+  ports:
+   - "3307:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 230606
+    MYSQL_DATABASE: apple_store
+  networks:
+      - my-network
+
+ api:
+  build:
+   context: C:\Users\rakhm\source\repos\AppleStore_Project
+   dockerfile: AppleStore_Project/Dockerfile
+  depends_on:
+   - db
+  ports:
+   - "3000:8080"
+  environment:
+    - DBHOST=db
+    - ASPNETCORE_ENVIRONMENT=Development
+  networks:
+      - my-network
+
+networks:
+  my-network:

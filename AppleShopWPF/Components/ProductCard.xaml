@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AppleShopWPF.Components"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="420" Background="White">
-    <Border>
+    <Border x:Name="RootBorder" MouseLeftButtonUp="RootBorder_MouseLeftButtonUp" Cursor="Hand">
 
         <Grid>
             <Grid.RowDefinitions>

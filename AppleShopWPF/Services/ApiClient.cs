@@ -14,7 +14,7 @@ namespace AppleShopWPF.Services
     public class ApiClient
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "http://localhost:5279/api/User";
+        private const string BaseUrl = "http://localhost:3000/api/User";
         private readonly JsonSerializerOptions _jsonOptions;
 
         public ApiClient()
@@ -99,7 +99,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync("http://localhost:5279/api/product");
+                var response = await _httpClient.GetAsync("http://localhost:3000/api/product");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -121,7 +121,7 @@ namespace AppleShopWPF.Services
                 var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode, StatusId = 1u };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync("http://localhost:5279/api/product", content);
+                var response = await _httpClient.PostAsync("http://localhost:3000/api/product", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var body = await response.Content.ReadAsStringAsync();
@@ -148,7 +148,7 @@ namespace AppleShopWPF.Services
                 var payload = new { CategoryId = categoryId, Name = name, Price = price, StockQuantity = stockQuantity, ImageCode = imageCode, StatusId = 1u };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync($"http://localhost:5279/api/product/{id}", content);
+                var response = await _httpClient.PutAsync($"http://localhost:3000/api/product/{id}", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var body = await response.Content.ReadAsStringAsync();
@@ -172,7 +172,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/product/{id}");
+                var response = await _httpClient.DeleteAsync($"http://localhost:3000/api/product/{id}");
                 if (!response.IsSuccessStatusCode)
                 {
                     var error = await response.Content.ReadAsStringAsync();
@@ -192,7 +192,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/category/{id}");
+                var response = await _httpClient.DeleteAsync($"http://localhost:3000/api/category/{id}");
                 if (!response.IsSuccessStatusCode)
                 {
                     var error = await response.Content.ReadAsStringAsync();
@@ -212,7 +212,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync("http://localhost:5279/api/user");
+                var response = await _httpClient.GetAsync("http://localhost:3000/api/user");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -304,7 +304,7 @@ namespace AppleShopWPF.Services
 
         public async Task<List<User>> GetUsersAsync(string? query = null)
         {
-            var url = "http://localhost:5279/api/user";
+            var url = "http://localhost:3000/api/user";
             if (!string.IsNullOrWhiteSpace(query))
                 url += $"?q={Uri.EscapeDataString(query)}";
 
@@ -323,7 +323,7 @@ namespace AppleShopWPF.Services
             var payload = new { IsActive = isActive };
             var content = new StringContent(JsonSerializer.Serialize(payload, _jsonOptions), Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PutAsync($"http://localhost:5279/api/user/{userId}/is-active", content);
+            var response = await _httpClient.PutAsync($"http://localhost:3000/api/user/{userId}/is-active", content);
             if (!response.IsSuccessStatusCode)
                 return false;
 
@@ -334,7 +334,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync("http://localhost:5279/api/order");
+                var response = await _httpClient.GetAsync("http://localhost:3000/api/order");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -353,7 +353,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"http://localhost:5279/api/order/user/{userId}");
+                var response = await _httpClient.GetAsync($"http://localhost:3000/api/order/user/{userId}");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -381,7 +381,7 @@ namespace AppleShopWPF.Services
                 };
                 var json = JsonSerializer.Serialize(payload, _jsonOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync("http://localhost:5279/api/order", content);
+                var response = await _httpClient.PostAsync("http://localhost:3000/api/order", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var body = await response.Content.ReadAsStringAsync();
@@ -405,7 +405,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync("http://localhost:5279/api/category");
+                var response = await _httpClient.GetAsync("http://localhost:3000/api/category");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -427,7 +427,7 @@ namespace AppleShopWPF.Services
                 var payload = new { Name = name, Description = description };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync("http://localhost:5279/api/category", content);
+                var response = await _httpClient.PostAsync("http://localhost:3000/api/category", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var body = await response.Content.ReadAsStringAsync();
@@ -461,7 +461,7 @@ namespace AppleShopWPF.Services
                 var payload = new { Name = name, Description = description };
                 var json = JsonSerializer.Serialize(payload);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync($"http://localhost:5279/api/category/{id}", content);
+                var response = await _httpClient.PutAsync($"http://localhost:3000/api/category/{id}", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var body = await response.Content.ReadAsStringAsync();
@@ -492,7 +492,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"http://localhost:5279/api/cart/{userId}");
+                var response = await _httpClient.GetAsync($"http://localhost:3000/api/cart/{userId}");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -514,7 +514,7 @@ namespace AppleShopWPF.Services
                 var payload = new { ProductId = productId, Quantity = quantity };
                 var json = JsonSerializer.Serialize(payload, _jsonOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync($"http://localhost:5279/api/cart/{userId}/items", content);
+                var response = await _httpClient.PostAsync($"http://localhost:3000/api/cart/{userId}/items", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var body = await response.Content.ReadAsStringAsync();
@@ -533,7 +533,7 @@ namespace AppleShopWPF.Services
                 var payload = new { Quantity = quantity };
                 var json = JsonSerializer.Serialize(payload, _jsonOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync($"http://localhost:5279/api/cart/{userId}/items/{productId}", content);
+                var response = await _httpClient.PutAsync($"http://localhost:3000/api/cart/{userId}/items/{productId}", content);
                 return response.IsSuccessStatusCode;
             }
             catch { return false; }
@@ -543,7 +543,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/cart/{userId}/items/{productId}");
+                var response = await _httpClient.DeleteAsync($"http://localhost:3000/api/cart/{userId}/items/{productId}");
                 return response.IsSuccessStatusCode;
             }
             catch { return false; }
@@ -553,7 +553,7 @@ namespace AppleShopWPF.Services
         {
             try
             {
-                var response = await _httpClient.DeleteAsync($"http://localhost:5279/api/cart/{userId}");
+                var response = await _httpClient.DeleteAsync($"http://localhost:3000/api/cart/{userId}");
                 return response.IsSuccessStatusCode;
             }
             catch { return false; }

@@ -32,6 +32,7 @@ namespace AppleShopWPF.Pages
             {
                 var productCard = new ProductCard
                 {
+                    ProductData = product,
                     ProductName = product.Name,
                     StockQuantity = (int)product.StockQuantity,
                     Price = product.Price,

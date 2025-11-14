@@ -1,4 +1,6 @@
-﻿using AppleShopWPF.Services;
+using AppleShopWPF.Services;
+using AppleShopWPF.Windows;
+using ApplShopAPI.Model;
 using System;
 using System.IO;
 using System.Windows;
@@ -14,6 +16,7 @@ namespace AppleShopWPF.Components
             InitializeComponent();
         }
 
+        public Product? ProductData { get; set; }
         public string ProductName { get; set; } = "Product Name";
         public int StockQuantity { get; set; } = 0;
         public decimal Price { get; set; } = 0;
@@ -66,6 +69,46 @@ namespace AppleShopWPF.Components
             }
 
             OnBuyClicked?.Invoke(ProductId);
+        }
+
+        private void RootBorder_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // Не открываем детали, если клик по кнопке
+            if (IsClickOnButton(e))
+                return;
+
+            var owner = Window.GetWindow(this);
+
+            // Если полный объект продукта известен, показываем его; иначе собираем из свойств
+            var product = ProductData ?? new Product
+            {
+                Id = (uint)ProductId,
+                Name = ProductName,
+                Price = Price,
+                StockQuantity = (uint)Math.Max(0, StockQuantity),
+                ImageCode = string.IsNullOrWhiteSpace(ImageCode) ? null : ImageCode,
+                CategoryId = 0,
+                StatusId = 1
+            };
+
+            var details = new ProductDetailWindow(product);
+            if (owner != null)
+                details.Owner = owner;
+            details.ShowDialog();
+        }
+
+        private static bool IsClickOnButton(RoutedEventArgs e)
+        {
+            if (e.OriginalSource is DependencyObject d)
+            {
+                while (d != null)
+                {
+                    if (d is Button)
+                        return true;
+                    d = System.Windows.Media.VisualTreeHelper.GetParent(d);
+                }
+            }
+            return false;
         }
     }
 }

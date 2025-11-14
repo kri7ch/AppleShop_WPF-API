@@ -130,3 +130,5 @@ C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\bin\Debug\net8.0-win
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\bin\Debug\net8.0-windows\MimeKit.dll
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
 C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Windows\ProductDetailWindow.baml
+C:\Users\rakhm\source\repos\AppleStore_Project\AppleShopWPF\obj\Debug\net8.0-windows\Windows\ProductDetailWindow.g.cs
